@@ -274,6 +274,9 @@ export async function onRequestGet(context) {
       headers: { 'Content-Type': 'text/html; charset=utf-8' }
     });
   } catch (err) {
-    return new Response(`Server Error: ${err.message}`, { status: 500 });
+    return new Response(`DEBUG ERROR: ${err.name} - ${err.message}\nStack: ${err.stack}`, {
+      status: 200,
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+    });
   }
 }
