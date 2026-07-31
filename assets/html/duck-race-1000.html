@@ -232,6 +232,17 @@ AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_con
 	setTimeout(function()
 	{
 		Main(urlData);
+		setTimeout(function() {
+			if (typeof exportRoot !== 'undefined' && exportRoot.settings) {
+				exportRoot.settings.visible = false;
+				if (typeof $ !== 'undefined') {
+					$("#titleInput").hide();
+					$("#namesList").hide();
+					$("#countInput").hide();
+					$("#selectDrop").hide();
+				}
+			}
+		}, 300);
 	},300);
 }
 </script>
