@@ -1,15 +1,23 @@
 function parseCookies(request) {
   const list = {};
-  const rc = request.headers.get('Cookie');
-  if (rc) {
-    const pairs = rc.split(';');
-    for (let i = 0; i < pairs.length; i++) {
-      const parts = pairs[i].split('=');
-      const key = parts[0].trim();
-      const val = parts.slice(1).join('=').trim();
-      list[key] = decodeURIComponent(val);
+  try {
+    const rc = request.headers.get('Cookie') || request.headers.get('cookie');
+    if (rc) {
+      const pairs = rc.split(';');
+      for (let i = 0; i < pairs.length; i++) {
+        const parts = pairs[i].split('=');
+        if (parts.length >= 2) {
+          const key = parts[0].trim();
+          const val = parts.slice(1).join('=').trim();
+          try {
+            list[key] = decodeURIComponent(val);
+          } catch (e) {
+            list[key] = val;
+          }
+        }
+      }
     }
-  }
+  } catch (e) {}
   return list;
 }
 
@@ -38,7 +46,7 @@ function getLoginHtml() {
 '<p>Đăng nhập để cấu hình kết quả đua vịt</p>' +
 '<div id="err" class="error"></div>' +
 '<form onsubmit="doLogin(event)">' +
-'<div class="form-group"><label>Tài khoản</label><input type="text" id="u" required></div>' +
+'<div class="form-group"><label>Tài khoản</label><input type="text" id="u" required autocomplete="off"></div>' +
 '<div class="form-group"><label>Mật khẩu</label><input type="password" id="p" required></div>' +
 '<button type="submit">🔒 Đăng Nhập</button>' +
 '</form>' +
@@ -111,8 +119,11 @@ function getDashboardHtml(w1, w2, w3) {
 
 export async function onRequestGet(context) {
   try {
-    const cookies = parseCookies(context.request);
-    const isAuthenticated = cookies.admin_session === 'valid_admin_token';
+    let isAuthenticated = false;
+    try {
+      const cookies = parseCookies(context.request);
+      isAuthenticated = cookies && cookies.admin_session === 'valid_admin_token';
+    } catch (e) {}
 
     let w1 = 3, w2 = 1, w3 = 2;
     try {
@@ -132,9 +143,13 @@ export async function onRequestGet(context) {
     const html = isAuthenticated ? getDashboardHtml(w1, w2, w3) : getLoginHtml();
 
     return new Response(html, {
+      status: 200,
       headers: { 'Content-Type': 'text/html; charset=utf-8' }
     });
   } catch (err) {
-    return new Response('Server Error: ' + err.message, { status: 500 });
+    return new Response(getLoginHtml(), {
+      status: 200,
+      headers: { 'Content-Type': 'text/html; charset=utf-8' }
+    });
   }
 }
