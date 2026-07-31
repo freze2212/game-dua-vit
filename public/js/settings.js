@@ -1023,6 +1023,7 @@ function Settings(props)
                     menuInstance.timer.newWay.mn_txt.text="00";
                     menuInstance.timer.newWay.full_btn.gotoAndStop(1);
                     break;
+            }
 
             if (fromURL.clock && typeof fromURL.clock === "string" && fromURL.clock.indexOf(":") !== -1) {
                 var hhmm=fromURL.clock.split(":");
