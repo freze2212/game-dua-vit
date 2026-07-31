@@ -464,11 +464,17 @@ const server = http.createServer((req, res) => {
   res.end('404 Not Found');
 });
 
-server.listen(PORT, () => {
-  console.log(`\n===============================================================`);
-  console.log(`🦆 DUCK RACE SERVER IS RUNNING!`);
-  console.log(`🏠 Home Page Game: http://localhost:${PORT}/`);
-  console.log(`🔑 Admin Portal: http://localhost:${PORT}/admin/`);
-  console.log(`📡 Local Result API: http://localhost:${PORT}/api/set-winner`);
-  console.log(`===============================================================\n`);
-});
+if (!process.env.VERCEL) {
+  server.listen(PORT, () => {
+    console.log(`\n===============================================================`);
+    console.log(`🦆 DUCK RACE SERVER IS RUNNING!`);
+    console.log(`🏠 Home Page Game: http://localhost:${PORT}/`);
+    console.log(`🔑 Admin Portal: http://localhost:${PORT}/admin/`);
+    console.log(`📡 Local Result API: http://localhost:${PORT}/api/set-winner`);
+    console.log(`===============================================================\n`);
+  });
+}
+
+export default (req, res) => {
+  server.emit('request', req, res);
+};
