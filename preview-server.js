@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const ASSETS_DIR = path.resolve('assets');
 
 // Admin credentials
