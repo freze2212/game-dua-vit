@@ -38,6 +38,15 @@
     <script>
 
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, lib, loader, AdobeAn0,AdobeAn1000;
+function urlSettings() {
+    return {
+        language: 'english',
+        logo: null,
+        volume: 100,
+        userType: true,
+        ownLogo: false
+    };
+}
 var urlData=urlSettings();
 function reCreateManifest(manifest)
 {
@@ -121,9 +130,13 @@ function handleComplete(evt,comp)
 
 	createjs.Touch.enable(stage);
 
-    urlData.language=(urlData.language!=="english")?JSON.parse(queue.getResult("language")):null;
+    if (!urlData) urlData = { language: 'english', logo: null, volume: 100, userType: true, ownLogo: false };
+    try {
+      urlData.language=(urlData.language!=="english" && queue.getResult("language"))?JSON.parse(queue.getResult("language")):null;
+    } catch(e) { urlData.language = null; }
     urlData.logo=queue.getResult("logo");
-    urlData.sounds=queue.getResult("sounds").sounds;
+    var soundsRes = queue.getResult("sounds");
+    urlData.sounds=soundsRes && soundsRes.sounds ? soundsRes.sounds : [];
 
 	if (AdobeAn0)
     {
