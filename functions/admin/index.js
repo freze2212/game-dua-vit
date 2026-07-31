@@ -83,44 +83,31 @@ function getDashboardHtml(w1, w2, w3) {
 '<meta charset="UTF-8">' +
 '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
 '<title>Bảng Điều Khiển Admin - Cấu Hình Kết Quả Đua Vịt</title>' +
-'<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">' +
 '<style>' +
-'* { box-sizing: border-box; font-family: "Inter", sans-serif; }' +
-'body { font-family: "Inter", sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; min-height: 100vh; }' +
+'* { box-sizing: border-box; font-family: sans-serif; }' +
+'body { background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; min-height: 100vh; }' +
 '.top-bar { display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 20px auto; background: #1e293b; padding: 15px 25px; border-radius: 12px; border: 1px solid #334155; }' +
-'.top-bar h2 { margin: 0; color: #38bdf8; font-size: 20px; display: flex; align-items: center; gap: 10px; }' +
-'.user-actions { display: flex; align-items: center; gap: 12px; }' +
-'.btn-home { background: #0284c7; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 13px; transition: 0.2s; display: inline-flex; align-items: center; gap: 6px; }' +
-'.btn-home:hover { background: #0369a1; }' +
-'.badge-admin { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }' +
-'.btn-logout { background: #dc2626; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px; transition: 0.2s; }' +
-'.btn-logout:hover { background: #b91c1c; }' +
+'.top-bar h2 { margin: 0; color: #38bdf8; font-size: 20px; }' +
+'.btn-home { background: #0284c7; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 13px; }' +
+'.badge-admin { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin: 0 10px; }' +
+'.btn-logout { background: #dc2626; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px; }' +
 '.card { background: #1e293b; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); max-width: 800px; margin: 0 auto 20px auto; border: 1px solid #334155; }' +
-'.card h3 { margin-top: 0; color: #f8fafc; font-size: 18px; border-bottom: 1px solid #334155; padding-bottom: 14px; display: flex; align-items: center; gap: 8px; }' +
-'.local-notice { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ade80; padding: 12px 16px; border-radius: 8px; font-size: 13px; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }' +
 '.form-group { display: flex; gap: 20px; align-items: center; justify-content: center; margin: 25px 0; flex-wrap: wrap; }' +
-'.select-item { display: flex; flex-direction: column; gap: 8px; text-align: left; }' +
-'label { font-weight: 600; color: #cbd5e1; font-size: 14px; }' +
-'select { padding: 12px 18px; border-radius: 8px; background: #0f172a; color: white; border: 1px solid #475569; font-size: 16px; outline: none; cursor: pointer; min-width: 180px; }' +
-'select:focus { border-color: #38bdf8; box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2); }' +
-'.btn-primary { background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%); color: white; border: none; padding: 14px 36px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 16px; transition: 0.2s; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3); margin-top: 10px; }' +
-'.btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }' +
-'.status { margin-top: 20px; text-align: center; color: #38bdf8; font-weight: 600; font-size: 16px; background: rgba(15, 23, 42, 0.5); padding: 12px; border-radius: 8px; border: 1px solid #334155; }' +
-'.action-row { margin-top: 24px; text-align: center; display: flex; justify-content: center; gap: 15px; }' +
+'select { padding: 12px 18px; border-radius: 8px; background: #0f172a; color: white; border: 1px solid #475569; font-size: 16px; min-width: 180px; }' +
+'.btn-primary { background: #0284c7; color: white; border: none; padding: 14px 36px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 16px; }' +
+'.status { margin-top: 20px; text-align: center; color: #38bdf8; font-weight: 600; font-size: 16px; background: rgba(15, 23, 42, 0.5); padding: 12px; border-radius: 8px; }' +
 '</style>' +
 '</head>' +
 '<body>' +
-'<div class="top-bar"><h2>&#9881;&#65039; ADMIN KET QUA DUA VIT</h2><div class="user-actions"><a href="/" target="_blank" class="btn-home">&#127968; Trang Chu Game</a><span class="badge-admin">&#128100; Admin</span><form action="/admin/logout" method="POST" style="margin:0;"><button type="submit" class="btn-logout">&#128682; Dang xuat</button></form></div></div>' +
+'<div class="top-bar"><h2>ADMIN KET QUA DUA VIT</h2><div><a href="/" target="_blank" class="btn-home">Trang Chu Game</a><span class="badge-admin">Admin</span><form action="/admin/logout" method="POST" style="display:inline;"><button type="submit" class="btn-logout">Dang xuat</button></form></div></div>' +
 '<div class="card">' +
-'<h3>&#127919; Cau Hinh Thu Hang Vit Ve Dich</h3>' +
-'<div class="local-notice">&#128274; <b>Cloudflare Serverless:</b> Cau hinh duoc dong bo tren Cloudflare Edge Network.</div>' +
+'<h3>Cau Hinh Thu Hang Vit Ve Dich</h3>' +
 '<div class="form-group">' +
-'<div class="select-item"><label>&#129351; Hang 1 (Winner):</label><select id="p1"><option value="1"' + s1_1 + '>Vit #1</option><option value="2"' + s1_2 + '>Vit #2</option><option value="3"' + s1_3 + '>Vit #3</option></select></div>' +
-'<div class="select-item"><label>&#129352; Hang 2:</label><select id="p2"><option value="1"' + s2_1 + '>Vit #1</option><option value="2"' + s2_2 + '>Vit #2</option><option value="3"' + s2_3 + '>Vit #3</option></select></div>' +
-'<div class="select-item"><label>&#129353; Hang 3:</label><select id="p3"><option value="1"' + s3_1 + '>Vit #1</option><option value="2"' + s3_2 + '>Vit #2</option><option value="3"' + s3_3 + '>Vit #3</option></select></div>' +
+'<div><label>Hang 1 (Winner):</label><br><select id="p1"><option value="1"' + s1_1 + '>Vit #1</option><option value="2"' + s1_2 + '>Vit #2</option><option value="3"' + s1_3 + '>Vit #3</option></select></div>' +
+'<div><label>Hang 2:</label><br><select id="p2"><option value="1"' + s2_1 + '>Vit #1</option><option value="2"' + s2_2 + '>Vit #2</option><option value="3"' + s2_3 + '>Vit #3</option></select></div>' +
+'<div><label>Hang 3:</label><br><select id="p3"><option value="1"' + s3_1 + '>Vit #1</option><option value="2"' + s3_2 + '>Vit #2</option><option value="3"' + s3_3 + '>Vit #3</option></select></div>' +
 '</div>' +
-'<div style="text-align: center;"><button class="btn-primary" onclick="updateApiConfig()">&#128190; Luu Cau Hinh Ket Qua</button><div id="statusMsg" class="status">Cau hinh API hien tai: Vit #' + w1 + ' &rarr; Vit #' + w2 + ' &rarr; Vit #' + w3 + '</div></div>' +
-'<div class="action-row"><a href="/" target="_blank" class="btn-home" style="padding: 12px 24px; font-size: 15px;">&#128709; Mo Trang Chu Dua Vit De Test</a></div>' +
+'<div style="text-align: center;"><button class="btn-primary" onclick="updateApiConfig()">Luu Cau Hinh Ket Qua</button><div id="statusMsg" class="status">Cau hinh API hien tai: Vit #' + w1 + ' -> Vit #' + w2 + ' -> Vit #' + w3 + '</div></div>' +
 '</div>' +
 '<script>' +
 'async function updateApiConfig(){const p1=parseInt(document.getElementById("p1").value);const p2=parseInt(document.getElementById("p2").value);const p3=parseInt(document.getElementById("p3").value);if(new Set([p1,p2,p3]).size!==3){alert("Vui long chon 3 con vit khac nhau cho cac vi tri hang 1, 2, 3!");return;}try{const res=await fetch("/api/set-winner",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({winnerOrder:[p1,p2,p3]})});const data=await res.json();if(data.success){document.getElementById("statusMsg").innerText="API Cap nhat thanh cong! Thu tu set: Vit #"+p1+" -> Vit #"+p2+" -> Vit #"+p3;}else{alert("Loi: "+(data.error||"Khong the cap nhat cau hinh API!"));}}catch(err){alert("Loi ket noi may chu API!");}}' +
