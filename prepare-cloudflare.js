@@ -2,13 +2,12 @@ import fs from 'fs';
 import path from 'path';
 
 const rootDir = path.resolve('.');
-const publicDir = path.join(rootDir, 'public');
 const assetsDir = path.join(rootDir, 'assets');
+const publicDir = path.join(rootDir, 'public');
 const functionsDir = path.join(rootDir, 'functions');
 
-console.log('📦 Preparing Cloudflare Pages bundle...');
+console.log('📦 Preparing Root & Cloudflare Pages deployment structure...');
 
-// Helper to recursively copy directories
 function copyFolderSync(from, to) {
   if (!fs.existsSync(to)) {
     fs.mkdirSync(to, { recursive: true });
@@ -24,38 +23,25 @@ function copyFolderSync(from, to) {
   });
 }
 
-// 1. Prepare public/
-if (fs.existsSync(publicDir)) {
-  fs.rmSync(publicDir, { recursive: true, force: true });
-}
-fs.mkdirSync(publicDir, { recursive: true });
-
-// Copy html/duck-race-1000.html to public/index.html
+// 1. Copy duck-race-1000.html to root index.html and public/index.html
 const indexHtmlSrc = path.join(assetsDir, 'html', 'duck-race-1000.html');
 if (fs.existsSync(indexHtmlSrc)) {
+  fs.copyFileSync(indexHtmlSrc, path.join(rootDir, 'index.html'));
+  if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
   fs.copyFileSync(indexHtmlSrc, path.join(publicDir, 'index.html'));
 }
 
-// Copy static asset folders to public/
+// 2. Copy static asset folders to root and public/
 const folders = ['js', 'css', 'audio', 'images', 'json', 'sounds', 'components'];
 folders.forEach(folder => {
   const src = path.join(assetsDir, folder);
   if (fs.existsSync(src)) {
+    copyFolderSync(src, path.join(rootDir, folder));
     copyFolderSync(src, path.join(publicDir, folder));
   }
 });
 
-// Also copy root sounds or json if present
-['sounds', 'audio', 'images', 'js', 'css'].forEach(folder => {
-  const rootFolder = path.join(rootDir, folder);
-  if (fs.existsSync(rootFolder)) {
-    copyFolderSync(rootFolder, path.join(publicDir, folder));
-  }
-});
-
-console.log('✅ Created static assets in ./public directory!');
-
-// 2. Prepare functions/
+// 3. Prepare functions/ for Cloudflare Pages serverless APIs
 const apiDir = path.join(functionsDir, 'api');
 const adminDir = path.join(functionsDir, 'admin');
 fs.mkdirSync(apiDir, { recursive: true });
@@ -107,5 +93,6 @@ export async function onRequestPost(context) {
 }
 `.trim());
 
-console.log('✅ Created Cloudflare Pages Functions in ./functions directory!');
-console.log('🎉 Cloudflare Pages Bundle is ready for deployment!');
+console.log('✅ Created root index.html and asset folders!');
+console.log('✅ Created Cloudflare Pages Functions in ./functions!');
+console.log('🎉 Project structure is 100% ready for Cloudflare Pages!');

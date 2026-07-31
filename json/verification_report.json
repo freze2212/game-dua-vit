@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-07-27T13:49:24.785Z",
+  "apiLogs": [
+    {
+      "type": "request",
+      "method": "POST",
+      "url": "https://www.online-stopwatch.com/js/pchk.php"
+    },
+    {
+      "type": "response",
+      "status": 200,
+      "url": "https://www.online-stopwatch.com/js/pchk.php",
+      "body": ""
+    },
+    {
+      "type": "request",
+      "method": "GET",
+      "url": "https://www.online-stopwatch.com/sounds/sounds.json"
+    },
+    {
+      "type": "response",
+      "status": 200,
+      "url": "https://www.online-stopwatch.com/sounds/sounds.json",
+      "body": "{\r\n  \"sounds\":[\r\n    {\"fileName\":\"1\",\r\n      \"niceName\":\"Original Bell\"\r\n    },\r\n    {\"fileName\":\"mute\",\r\n      \"niceName\":\"Mute All\"\r\n    },\r\n    {\"fileName\":\"2\",\r\n      \"niceName\":\"Air Raid Siren\"\r\n    },\r\n    {\"fileName\":\"3\",\r\n      \"niceName\":\"Applause\"\r\n    },\r\n    {\"fileName\":\"4\",\r\n      \"niceName\":\"Festive Bells\"\r\n    },\r\n    {\"fileName\":\"5\",\r\n      \"niceName\":\"Rocket Launch\"\r\n    },\r\n    {\"fileName\":\"6\",\r\n      \"niceName\":\"Explosion\"\r\n    },\r\n    {\"fileName\":\"7\",\r\n      \"niceName\":\"Cop Car\"\r\n    },\r\n    {\"fileName\":\"8\",\r\n      \"niceName\":\"High Pitch\"\r\n    },\r\n    {\"fileName\":\"9\",\r\n      \"niceName\":\"Laughing\"\r\n    },\r\n    {\"fileName\":\"10\",\r\n      \"niceName\":\"Ting Ting Bell\"\r\n    },\r\n    {\"fileName\":\"11\",\r\n      \"niceName\":\"Submarine\"\r\n    },\r\n    {\"fileName\":\"12\",\r\n      \"niceName\":\"Sonar\"\r\n    },\r\n    {\"fileName\":\"13\",\r\n      \"niceName\":\"Race Bugle\"\r\n    },\r\n    {\"fileName\":\"14\",\r\n      \"niceName\":\"Key Chimes\"\r\n    },\r\n    {\"fileName\":\"15\",\r\n      \"niceName\":\"Digital Alarm\"\r\n    },\r\n    {\"fileName\":\"16\",\r\n      \"niceName\":\"Siren\"\r\n    },\r\n    {\"fileName\":\"17\",\r\n      \"niceName\":\"Sensory\"\r\n    }\r\n  ]\r\n}"
+    }
+  ],
+  "initialConfig": {
+    "duckCount": 3,
+    "ducks": [
+      {
+        "index": 0,
+        "name": "inner",
+        "number": 1
+      },
+      {
+        "index": 1,
+        "name": "myNum",
+        "number": 2
+      },
+      {
+        "index": 2,
+        "name": "no",
+        "number": 3
+      }
+    ],
+    "timerDuration": null
+  },
+  "engineResults": [],
+  "displayResults": [],
+  "testPassed": true
+}
