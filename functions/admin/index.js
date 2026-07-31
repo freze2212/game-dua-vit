@@ -48,12 +48,12 @@ function getLoginHtml() {
 '</head>' +
 '<body>' +
 '<div class="login-card">' +
-'<div class="logo-container"><div class="logo-icon">🦆</div><h2>TRANG QUẢN TRỊ ADMIN</h2><p class="subtitle">Đăng nhập để cấu hình kết quả đua vịt/ngựa</p></div>' +
+'<div class="logo-container"><div class="logo-icon">&#129414;</div><h2>TRANG QUẢN TRỊ ADMIN</h2><p class="subtitle">Đăng nhập để cấu hình kết quả đua vịt/ngựa</p></div>' +
 '<div id="errorMsg" class="error-msg"></div>' +
 '<form id="loginForm" onsubmit="handleLogin(event)">' +
 '<div class="form-group"><label for="username">Tài khoản Admin</label><input type="text" id="username" placeholder="Nhập tài khoản admin..." required autocomplete="off"></div>' +
 '<div class="form-group"><label for="password">Mật khẩu</label><input type="password" id="password" placeholder="Nhập mật khẩu..." required></div>' +
-'<button type="submit">🔒 Đăng Nhập</button>' +
+'<button type="submit">&#128274; Đăng Nhập</button>' +
 '</form>' +
 '</div>' +
 '<script>' +
@@ -109,20 +109,20 @@ function getDashboardHtml(w1, w2, w3) {
 '</style>' +
 '</head>' +
 '<body>' +
-'<div class="top-bar"><h2>⚙️ ADMIN KẾT QUẢ ĐUA VỊT</h2><div class="user-actions"><a href="/" target="_blank" class="btn-home">🏠 Trang Chủ Game</a><span class="badge-admin">👤 Admin</span><form action="/admin/logout" method="POST" style="margin:0;"><button type="submit" class="btn-logout">🚪 Đăng xuất</button></form></div></div>' +
+'<div class="top-bar"><h2>&#9881;&#65039; ADMIN KET QUA DUA VIT</h2><div class="user-actions"><a href="/" target="_blank" class="btn-home">&#127968; Trang Chu Game</a><span class="badge-admin">&#128100; Admin</span><form action="/admin/logout" method="POST" style="margin:0;"><button type="submit" class="btn-logout">&#128682; Dang xuat</button></form></div></div>' +
 '<div class="card">' +
-'<h3>🎯 Cấu Hình Thứ Hạng Vịt/Ngựa Về Đích</h3>' +
-'<div class="local-notice">🔒 <b>Cloudflare Serverless:</b> Cấu hình được đồng bộ trên Cloudflare Edge Network.</div>' +
+'<h3>&#127919; Cau Hinh Thu Hang Vit Ve Dich</h3>' +
+'<div class="local-notice">&#128274; <b>Cloudflare Serverless:</b> Cau hinh duoc dong bo tren Cloudflare Edge Network.</div>' +
 '<div class="form-group">' +
-'<div class="select-item"><label>🥇 Hạng 1 (Winner):</label><select id="p1"><option value="1"' + s1_1 + '>Vịt #1</option><option value="2"' + s1_2 + '>Vịt #2</option><option value="3"' + s1_3 + '>Vịt #3</option></select></div>' +
-'<div class="select-item"><label>🥈 Hạng 2:</label><select id="p2"><option value="1"' + s2_1 + '>Vịt #1</option><option value="2"' + s2_2 + '>Vịt #2</option><option value="3"' + s2_3 + '>Vịt #3</option></select></div>' +
-'<div class="select-item"><label>🥉 Hạng 3:</label><select id="p3"><option value="1"' + s3_1 + '>Vịt #1</option><option value="2"' + s3_2 + '>Vịt #2</option><option value="3"' + s3_3 + '>Vịt #3</option></select></div>' +
+'<div class="select-item"><label>&#129351; Hang 1 (Winner):</label><select id="p1"><option value="1"' + s1_1 + '>Vit #1</option><option value="2"' + s1_2 + '>Vit #2</option><option value="3"' + s1_3 + '>Vit #3</option></select></div>' +
+'<div class="select-item"><label>&#129352; Hang 2:</label><select id="p2"><option value="1"' + s2_1 + '>Vit #1</option><option value="2"' + s2_2 + '>Vit #2</option><option value="3"' + s2_3 + '>Vit #3</option></select></div>' +
+'<div class="select-item"><label>&#129353; Hang 3:</label><select id="p3"><option value="1"' + s3_1 + '>Vit #1</option><option value="2"' + s3_2 + '>Vit #2</option><option value="3"' + s3_3 + '>Vit #3</option></select></div>' +
 '</div>' +
-'<div style="text-align: center;"><button class="btn-primary" onclick="updateApiConfig()">💾 Lưu Cấu Hình Kết Quả</button><div id="statusMsg" class="status">Cấu hình API hiện tại: Vịt #' + w1 + ' ➔ Vịt #' + w2 + ' ➔ Vịt #' + w3 + '</div></div>' +
-'<div class="action-row"><a href="/" target="_blank" class="btn-home" style="padding: 12px 24px; font-size: 15px;">🕹️ Mở Trang Chủ Đua Vịt Để Test</a></div>' +
+'<div style="text-align: center;"><button class="btn-primary" onclick="updateApiConfig()">&#128190; Luu Cau Hinh Ket Qua</button><div id="statusMsg" class="status">Cau hinh API hien tai: Vit #' + w1 + ' &rarr; Vit #' + w2 + ' &rarr; Vit #' + w3 + '</div></div>' +
+'<div class="action-row"><a href="/" target="_blank" class="btn-home" style="padding: 12px 24px; font-size: 15px;">&#128709; Mo Trang Chu Dua Vit De Test</a></div>' +
 '</div>' +
 '<script>' +
-'async function updateApiConfig(){const p1=parseInt(document.getElementById("p1").value);const p2=parseInt(document.getElementById("p2").value);const p3=parseInt(document.getElementById("p3").value);if(new Set([p1,p2,p3]).size!==3){alert("Vui lòng chọn 3 con vịt khác nhau cho các vị trí hạng 1, 2, 3!");return;}try{const res=await fetch("/api/set-winner",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({winnerOrder:[p1,p2,p3]})});const data=await res.json();if(data.success){document.getElementById("statusMsg").innerText="✅ API Cập nhật thành công! Thứ tự set: Vịt #"+p1+" ➔ Vịt #"+p2+" ➔ Vịt #"+p3;}else{alert("Lỗi: "+(data.error||"Không thể cập nhật cấu hình API!"));}}catch(err){alert("Lỗi kết nối máy chủ API!");}}' +
+'async function updateApiConfig(){const p1=parseInt(document.getElementById("p1").value);const p2=parseInt(document.getElementById("p2").value);const p3=parseInt(document.getElementById("p3").value);if(new Set([p1,p2,p3]).size!==3){alert("Vui long chon 3 con vit khac nhau cho cac vi tri hang 1, 2, 3!");return;}try{const res=await fetch("/api/set-winner",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({winnerOrder:[p1,p2,p3]})});const data=await res.json();if(data.success){document.getElementById("statusMsg").innerText="API Cap nhat thanh cong! Thu tu set: Vit #"+p1+" -> Vit #"+p2+" -> Vit #"+p3;}else{alert("Loi: "+(data.error||"Khong the cap nhat cau hinh API!"));}}catch(err){alert("Loi ket noi may chu API!");}}' +
 '</script>' +
 '</body>' +
 '</html>';
@@ -152,13 +152,16 @@ export async function onRequest(context) {
     } catch (e) {}
 
     const html = isAuthenticated ? getDashboardHtml(w1, w2, w3) : getLoginHtml();
+    const encoder = new TextEncoder();
+    const bytes = encoder.encode(html);
 
-    return new Response(html, {
+    return new Response(bytes, {
       status: 200,
       headers: { 'Content-Type': 'text/html; charset=utf-8' }
     });
   } catch (err) {
-    return new Response(getLoginHtml(), {
+    const encoder = new TextEncoder();
+    return new Response(encoder.encode(getLoginHtml()), {
       status: 200,
       headers: { 'Content-Type': 'text/html; charset=utf-8' }
     });
