@@ -133,7 +133,7 @@
         <p class="subtitle">Đăng nhập để cấu hình kết quả đua vịt/ngựa</p>
       </div>
       <div id="loginError" class="error-msg"></div>
-      <form onsubmit="handleLogin(event)">
+      <form onsubmit="handleLogin(event); return false;">
         <div class="form-group">
           <label for="username">Tài khoản Admin</label>
           <input type="text" id="username" placeholder="Nhập tài khoản admin..." required autocomplete="off">
@@ -225,7 +225,7 @@
     }
 
     function handleLogin(e) {
-      e.preventDefault();
+      if (e && e.preventDefault) e.preventDefault();
       const u = document.getElementById('username').value.trim();
       const p = document.getElementById('password').value.trim();
       const errBox = document.getElementById('loginError');
@@ -238,6 +238,7 @@
         errBox.innerText = 'Tài khoản hoặc mật khẩu không chính xác!';
         errBox.style.display = 'block';
       }
+      return false;
     }
 
     function handleLogout() {
