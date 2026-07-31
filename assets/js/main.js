@@ -752,8 +752,19 @@ function Main(fromURL)
 
     function calculateCharacterProperties(i)
     {
+        if (!characters || characters.length === 0)
+        {
+            completeCharacterSetup();
+            return;
+        }
+        if (i < 0 || i >= characters.length) return;
 
         var character=characters[i].instance;
+        if (!character) {
+            if (i === characters.length - 1) completeCharacterSetup();
+            else calculateCharacterProperties(i + 1);
+            return;
+        }
         characters[i].firstRun=true;
         characters[i].targetX=0;
         character.name="character"+i;
@@ -1028,6 +1039,7 @@ function Main(fromURL)
     {
 
         if (
+            characters.length === 0 ||
             (prevState.charNum===null || prevState.charNum!==charactersNum) ||
             (prevState.showNumbers===null || prevState.showNumbers!==showNumbers) ||
             (prevState.showNames===null || prevState.showNames!==showNames) ||
@@ -1035,16 +1047,17 @@ function Main(fromURL)
         {
             for (var i=0;i<characters.length;i++)
             {
-                var character = characters[i].instance;
-                character.removeAllEventListeners();
-                createjs.Tween.removeTweens(character);
+                var character = (characters[i]) ? characters[i].instance : null;
+                if (character) {
+                    character.removeAllEventListeners();
+                    createjs.Tween.removeTweens(character);
 
-                cache.uncache(character.inner);
-                cache.uncache(character.myNum);
-                cache.uncache(character.no);
+                    if (character.inner) cache.uncache(character.inner);
+                    if (character.myNum) cache.uncache(character.myNum);
+                    if (character.no) cache.uncache(character.no);
 
-                exportRoot.removeChild(character);
-                character=null;
+                    if (character.parent) character.parent.removeChild(character);
+                }
             }
 
             characters.length=0;
