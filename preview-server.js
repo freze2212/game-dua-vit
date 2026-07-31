@@ -2,7 +2,7 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 
-const PORT = 3000;
+const PORT = process.env.PORT || 6033;
 const ASSETS_DIR = path.resolve('assets');
 
 // In-memory custom API state
