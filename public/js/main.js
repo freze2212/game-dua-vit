@@ -1422,23 +1422,27 @@ function Main(fromURL)
         {
             isAppAlarmClock=exportRoot.settings.timer.newWay.visible;
             once=false;
-            clock=e.data.clock;
-            timerMenu.showClock(clock);
-            if (isAppAlarmClock)
-            {
-                timeMls=Helper.calculateClock(clock.time,clock.ampm);
+            clock=e.data ? e.data.clock : null;
+            if (clock && clock.time) {
+                try { timerMenu.showClock(clock); } catch(err) {}
+                if (isAppAlarmClock && clock.ampm)
+                {
+                    timeMls=Helper.calculateClock(clock.time,clock.ampm);
+                }
+                else
+                {
+                    timeMls=(e.data && e.data.timerMilliseconds) ? e.data.timerMilliseconds : 10000;
+                }
+            } else {
+                timeMls = (e.data && e.data.timerMilliseconds) ? e.data.timerMilliseconds : 10000;
             }
-            else
-            {
-                timeMls=e.data.timerMilliseconds;
-            }
-            charactersNum=e.data.characterNum;
-            showNumbers=e.data.showNumbers;
-            characterStyle=e.data.characterStyle;
-            timerMenu.changeDisplayType(e.data.display);
-            userLogo.isVisible(e.data.isLogoVisible);
+            charactersNum=(e.data && e.data.characterNum) ? e.data.characterNum : charactersNum;
+            showNumbers=e.data ? e.data.showNumbers : showNumbers;
+            characterStyle=e.data ? e.data.characterStyle : characterStyle;
+            if (e.data && e.data.display) timerMenu.changeDisplayType(e.data.display);
+            if (e.data && typeof e.data.isLogoVisible !== 'undefined') userLogo.isVisible(e.data.isLogoVisible);
             var namesFromServer;
-            if (e.data.list)
+            if (e.data && e.data.list)
             {
                 namesFromServer=e.data.list;
                 coreData=Helper.generateCoreData(namesFromServer);
@@ -1465,6 +1469,7 @@ function Main(fromURL)
             }
             resetGame();
             setCharacterInitialProperties();
+            settings.hide();
         });
         settings.init();
 
