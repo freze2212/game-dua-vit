@@ -786,17 +786,10 @@ function Main(fromURL)
 
     function loadAsChunks(props)
     {
-        var chunks=parseInt(fromURL.loadingChunks);
-        var delay=parseInt(fromURL.loadingDelay);
-        settings.loaderUpdate(0.1);
-        var counter=0;
-        var divider=Helper.convertRange(props.length,{min:1,max:chunks},{min:2,max:100});
-        for (var i=0;i<props.length;i++)
-        {
-            if (i>(props.length/divider)*(counter+1)) counter++;
-            createjs.Tween.get().wait(counter*delay).call(createCharacter,[props,i]);
+        for (var i = 0; i < props.length; i++) {
+            createCharacter(props, i);
         }
-        createjs.Tween.get().wait((counter*delay)+10).call(completeCharacterSetup);
+        completeCharacterSetup();
     }
 
 
