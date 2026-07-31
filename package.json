@@ -5,6 +5,8 @@
   "description": "Duck race asset capture, custom API control, and result verification",
   "main": "preview-server.js",
   "scripts": {
+    "start": "node preview-server.js",
+    "dev": "node preview-server.js",
     "serve": "node preview-server.js",
     "test": "node test-game-verification.js",
     "test:gui": "node test-game-verification.js --gui",
