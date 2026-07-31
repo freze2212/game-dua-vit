@@ -746,7 +746,7 @@ function Main(fromURL)
 
         }
 
-        createjs.Tween.get().wait(100).call(loadAsChunks,[props]);
+        loadAsChunks(props);
 
     }
 
