@@ -909,6 +909,7 @@ function Main(fromURL)
 
         settings.fakeLoader("hide");
         settings.hide();
+        if (typeof stage !== 'undefined' && stage.update) stage.update();
         animationCharacters=characters.clone();
         animationCharacters=animationCharacters.shuffle();
         resetAnimations();
