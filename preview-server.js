@@ -372,12 +372,10 @@ const server = http.createServer((req, res) => {
 
   // 3. Admin Page Route: GET /admin or /admin/
   if (reqUrl === '/admin' || reqUrl === '/admin/') {
-    if (isAuthenticated(req)) {
+    const adminFilePath = path.join(process.cwd(), 'admin', 'index.html');
+    if (fs.existsSync(adminFilePath)) {
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-      return res.end(renderDashboardPage(activeGameConfig));
-    } else {
-      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-      return res.end(renderLoginPage());
+      return res.end(fs.readFileSync(adminFilePath, 'utf-8'));
     }
   }
 
