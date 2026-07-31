@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
-	<title>index</title>
+	<title>Duck Race 1000 - Game Đua Vịt</title>
 	<link href="/css/racetimer.css" rel="stylesheet" type="text/css">
-    <link href="../js/newrace.css?v=070626184009" rel="stylesheet" type="text/css">
+    <link href="/css/newrace.css?v=070626184009" rel="stylesheet" type="text/css">
     <style type="text/css">
     #countInput
     {
@@ -15,26 +15,26 @@
 	}
     </style>
     <script src="/js/WorkerTimers.js"></script>
-<script src="/js/createjs.js?v=070626184009"></script>
+    <script src="/js/createjs.js?v=070626184009"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/js/jquery.blockUI.js?v=070626184009"></script>
 	<script src="/js/timerfix.js?v=070626184009"></script>
 	<script src="/js/prototypes.js?v=070626184009"></script>
-    <script src="../js/helpers.js?v=070626184009"></script>
-    <script src="../js/language.js?v=070626184009"></script>
-    <script src="../js/server.js?v=070626184009"></script>
-	<script src="../js/snippets.js?v=070626184009"></script>
-    <script src="../js/slider.js?v=070626184009"></script>
-    <script src="../js/cache.js?v=070626184009"></script>
-    <script src="../js/sound.js?v=070626184009"></script>
-    <script src="../js/settings.js?v=070626184009"></script>
-    <script src="../js/keyboard.js?v=070626184009"></script>
-    <script src="../js/timermenu.js?v=070626184009"></script>
-    <script src="../js/listwinners.js?v=070626184009"></script>
-    <script src="../js/userlogo.js?v=070626184009"></script>
-    <script src="js/main.js?v=070626184009"></script>
-	<script src="js/index.js?v=070626184009"></script>
+    <script src="/js/helpers.js?v=070626184009"></script>
+    <script src="/js/language.js?v=070626184009"></script>
+    <script src="/js/server.js?v=070626184009"></script>
+	<script src="/js/snippets.js?v=070626184009"></script>
+    <script src="/js/slider.js?v=070626184009"></script>
+    <script src="/js/cache.js?v=070626184009"></script>
+    <script src="/js/sound.js?v=070626184009"></script>
+    <script src="/js/settings.js?v=070626184009"></script>
+    <script src="/js/keyboard.js?v=070626184009"></script>
+    <script src="/js/timermenu.js?v=070626184009"></script>
+    <script src="/js/listwinners.js?v=070626184009"></script>
+    <script src="/js/userlogo.js?v=070626184009"></script>
+    <script src="/js/main.js?v=070626184009"></script>
+	<script src="/js/index.js?v=070626184009"></script>
     <script>
 
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, lib, loader, AdobeAn0,AdobeAn1000;
@@ -57,7 +57,7 @@ function reCreateManifest(manifest)
 
         if (/.*?anwidget.*?\.js/.test(manifest[i].id))
         {
-            manifest[i].src= "components/sdk/anwidget.js?v=070626184009";
+            manifest[i].src= "/components/sdk/anwidget.js?v=070626184009";
             break;
         }
     }
@@ -81,14 +81,14 @@ function init()
 	loader.addEventListener("progress", function(evt){handleProgress(evt,comp)});
 	loader.addEventListener("error", function(evt){handleError(evt,comp)});
 
-    lib.properties.manifest.push({id:"sounds", src:"/sounds/sounds.json"});
+    lib.properties.manifest.push({id:"sounds", src:"/json/sounds.json"});
     lib.properties.manifest=reCreateManifest(lib.properties.manifest);
-    lib.properties.manifest.push({id:"cheer0", src:"../sounds/cheer.mp3"});
-    lib.properties.manifest.push({id:"airhorn0", src:"../sounds/airhorn.mp3"});
-    lib.properties.manifest.push({id:"duck0", src:"sounds/duck0.mp3"});
-    lib.properties.manifest.push({id:"duck1", src:"sounds/duck1.mp3"});
-    lib.properties.manifest.push({id:"duck2", src:"sounds/duck2.mp3"});
-    lib.properties.manifest.push({id:"premium1000", src:'../js/premium1000.js',crossOrigin:"Anonymous"});
+    lib.properties.manifest.push({id:"cheer0", src:"/audio/cheer.mp3"});
+    lib.properties.manifest.push({id:"airhorn0", src:"/audio/airhorn.mp3"});
+    lib.properties.manifest.push({id:"duck0", src:"/audio/duck0.mp3"});
+    lib.properties.manifest.push({id:"duck1", src:"/audio/duck1.mp3"});
+    lib.properties.manifest.push({id:"duck2", src:"/audio/duck2.mp3"});
+    lib.properties.manifest.push({id:"premium1000", src:'/js/premium1000.js',crossOrigin:"Anonymous"});
     loadFinalManifestAWS(function (){loader.loadManifest(lib.properties.manifest);});
 }
 function handleError(evt, comp)
@@ -203,9 +203,7 @@ AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_con
 
 	setTimeout(function()
 	{
-		//$("#loader").hide();
 		Main(urlData);
-
 	},300);
 }
 </script>
