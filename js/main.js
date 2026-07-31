@@ -1308,10 +1308,9 @@ function Main(fromURL)
             fromServer.list=namesFromServer;
 
             coreData=Helper.generateCoreData(namesFromServer);
-
+            charactersNum=coreData.length;
 
             prevState.showNumbers=null;
-
 
             init();
         }
