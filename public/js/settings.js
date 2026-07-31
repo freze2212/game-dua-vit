@@ -1024,11 +1024,12 @@ function Settings(props)
                     menuInstance.timer.newWay.full_btn.gotoAndStop(1);
                     break;
 
+            if (fromURL.clock && typeof fromURL.clock === "string" && fromURL.clock.indexOf(":") !== -1) {
+                var hhmm=fromURL.clock.split(":");
+                slider_mn.setCharNum(parseInt(hhmm[1] || 0));
+                slider_hr.setCharNum(parseInt(hhmm[0] || 0));
+                setClockDisplay();
             }
-            var hhmm=fromURL.clock.split(":");
-            slider_mn.setCharNum(parseInt(hhmm[1]));
-            slider_hr.setCharNum(parseInt(hhmm[0]));
-            setClockDisplay();
 
         }
 
