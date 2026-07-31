@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  duck-race:
+    build: .
+    container_name: duck-race-app
+    ports:
+      - "3000:3000"
+    restart: always
