@@ -1,45 +1,43 @@
-function Settings(props)
-{
+function Settings(props) {
 
-    var _this=this;
+    var _this = this;
     createjs.EventDispatcher.initialize(Slider.prototype);
     var slider;
-    var internalObject={};
+    var internalObject = {};
 
-    var menuInstance=props.menuInstance;
-    menuInstance.lightbox.visible=false;
+    var menuInstance = props.menuInstance;
+    menuInstance.lightbox.visible = false;
 
-    var language=props.language;
+    var language = props.language;
 
-    var timerInstance=props.timerInstance;
-    var isAllowed={remove:false,save:false,update:false};
-    var knobMax=props.knobMax;
-    var initialThumbPos=menuInstance.list.thumb.x;
+    var timerInstance = props.timerInstance;
+    var isAllowed = { remove: false, save: false, update: false };
+    var knobMax = props.knobMax;
+    var initialThumbPos = menuInstance.list.thumb.x;
 
-    var fromServer=props.fromServer;
-    var fromURL=props.fromURL;
+    var fromServer = props.fromServer;
+    var fromURL = props.fromURL;
 
     var demoSound;
-    var demoVolume=0.2;
+    var demoVolume = 0.2;
 
 
 
-    var comboSelectOptions={display:"HH:MM:SS",sfx:1};
-    var comboSelectedIndexes={
-        display:Helper.defaultDisplay.indexOf(fromURL.display),
-        sfx:fromURL.sounds.findIndex(function (x) {return x.fileName === fromURL.ns;})
+    var comboSelectOptions = { display: "HH:MM:SS", sfx: 1 };
+    var comboSelectedIndexes = {
+        display: Helper.defaultDisplay.indexOf(fromURL.display),
+        sfx: fromURL.sounds.findIndex(function (x) { return x.fileName === fromURL.ns; })
     };
 
-    var characterNum=props.characterNum;
-    var freeMaxAllowed=props.freeMaxAllowed;
-    var characterMaxNum=props.characterMaxNum;
-    var characterMinNum=props.characterMinNum;
-    var sounds=fromURL.sounds;
-    var soundClass=props.soundClass;
-    var nslen=fromURL.nslen;
+    var characterNum = props.characterNum;
+    var freeMaxAllowed = props.freeMaxAllowed;
+    var characterMaxNum = props.characterMaxNum;
+    var characterMinNum = props.characterMinNum;
+    var sounds = fromURL.sounds;
+    var soundClass = props.soundClass;
+    var nslen = fromURL.nslen;
 
-    if (nslen===998)
-    {
+    if (nslen === 998) {
         soundClass.setSfxNsLen(nslen);
         menuInstance.lightbox.nsLenLoop.gotoAndStop(1);
 
@@ -59,115 +57,103 @@ function Settings(props)
     menuInstance.list.premium1.visible = false;
 
 
-    if(menuInstance.list.ownLogoPromo)
-    {
+    if (menuInstance.list.ownLogoPromo) {
         menuInstance.list.ownLogoPromo.visible = true;
         menuInstance.list.ownLogoPromo.tickcross.cross.visible = true;
         menuInstance.list.ownLogoPromo.tickcross.tick.visible = false;
         menuInstance.list.ownLogoPromo.tickcross.cursor = "pointer";
-        menuInstance.list.ownLogoPromo.tickcross.addEventListener("mousedown",showLogoEG);
+        menuInstance.list.ownLogoPromo.tickcross.addEventListener("mousedown", showLogoEG);
     }
 
-    if (fromURL.ownLogo && fromServer.type!=="free")
-    {
+    if (fromURL.ownLogo && fromServer.type !== "free") {
         menuInstance.list.ownLogoPromo.tickcross.tick.visible = true;
         menuInstance.list.ownLogoPromo.tickcross.cross.visible = false;
-        isLogoVisible=true;
+        isLogoVisible = true;
     }
 
 
-    function showLogoEG(e)
-    {
+    function showLogoEG(e) {
 
-        if(!menuInstance.list.ownLogoPromo.tickcross.cross.visible)
-        {
+        if (!menuInstance.list.ownLogoPromo.tickcross.cross.visible) {
             menuInstance.list.ownLogoPromo.tickcross.cross.visible = true;
             menuInstance.list.ownLogoPromo.tickcross.tick.visible = false;
             isLogoVisible = false;
         }
-        else
-        {
+        else {
             menuInstance.list.ownLogoPromo.tickcross.cross.visible = false;
             menuInstance.list.ownLogoPromo.tickcross.tick.visible = true;
             isLogoVisible = true;
         }
     }
 
-    function showNameCount()
-    {
+    function showNameCount() {
 
         var txt = $("#namesList").val();
         txt = txt.trim().split("\n");
         var showLength = txt.length;
 
-        if(!$("#namesList").prop("readonly"))
-        {
-            if(showLength > characterMaxNum)
-            {
+        if (!$("#namesList").prop("readonly")) {
+            if (showLength > characterMaxNum) {
                 txt = txt.slice(0, characterMaxNum);
                 $("#namesList").val(txt.join("\n"));
                 showLength = characterMaxNum;
             }
         }
 
-        if(txt[0] === '') showLength = 0;
+        if (txt[0] === '') showLength = 0;
 
-        menuInstance.list.namesInList.text=language.translate("Names in list: ") + showLength + '/' + characterMaxNum;
-        _this.fixDom(menuInstance.list.namesList,$("#namesList"));
+        menuInstance.list.namesInList.text = language.translate("Names in list: ") + showLength + '/' + characterMaxNum;
+        _this.fixDom(menuInstance.list.namesList, $("#namesList"));
 
 
     }
 
-    function onMenuShowNameCount()
-    {
-        menuInstance.list.namesInList.text=language.translate("Names in list: ")+listCollector.list.length;
+    function onMenuShowNameCount() {
+        menuInstance.list.namesInList.text = language.translate("Names in list: ") + listCollector.list.length;
     }
 
 
 
-    if (fromServer.type==="free")
-    {
-        isAllowed.remove=false;
-        isAllowed.save=false;
-        isAllowed.update=false;
+    if (fromServer.type === "free") {
+        isAllowed.remove = false;
+        isAllowed.save = false;
+        isAllowed.update = false;
 
-        menuInstance.list.premium0.visible=false;
-        menuInstance.list.premium1.visible=false;
+        menuInstance.list.premium0.visible = false;
+        menuInstance.list.premium1.visible = false;
 
-        menuInstance.list.btn_delete.visible=false;
-        menuInstance.list.btn_update.visible=false;
-        menuInstance.list.btn_new.visible=false;
+        menuInstance.list.btn_delete.visible = false;
+        menuInstance.list.btn_update.visible = false;
+        menuInstance.list.btn_new.visible = false;
 
-        menuInstance.list.mc_delete.addEventListener("mousedown",showPremium);
-        menuInstance.list.mc_save.addEventListener("mousedown",showPremium);
-        menuInstance.list.mc_update.addEventListener("mousedown",showPremium);
+        menuInstance.list.mc_delete.addEventListener("mousedown", showPremium);
+        menuInstance.list.mc_save.addEventListener("mousedown", showPremium);
+        menuInstance.list.mc_update.addEventListener("mousedown", showPremium);
 
     }
 
-    if (fromServer.owner==="other")
-    {
-        isAllowed.remove=false;
-        isAllowed.save=true;
-        isAllowed.update=false;
+    if (fromServer.owner === "other") {
+        isAllowed.remove = false;
+        isAllowed.save = true;
+        isAllowed.update = false;
 
-        menuInstance.list.btn_delete.visible=false;
-        menuInstance.list.btn_update.visible=false;
-        menuInstance.list.mc_delete.alpha=0.5;
-        menuInstance.list.mc_update.alpha=0.5;
+        menuInstance.list.btn_delete.visible = false;
+        menuInstance.list.btn_update.visible = false;
+        menuInstance.list.mc_delete.alpha = 0.5;
+        menuInstance.list.mc_update.alpha = 0.5;
     }
 
-    if (menuInstance.list.choiceToggle)
-    {
-        var characterStyle=parseInt(props.characterStyle);
+    if (menuInstance.list.choiceToggle) {
+        var characterStyle = parseInt(props.characterStyle);
         menuInstance.list.choiceToggle.gotoAndStop(characterStyle);
         menuInstance.list.choiceToggle.updateCache();
     }
 
 
 
-    var listCollector={
-        list:fromServer.list,
-        restoredList:fromServer.list
+    var listCollector = {
+        list: fromServer.list,
+        restoredList: fromServer.list
     };
 
 
@@ -179,51 +165,48 @@ function Settings(props)
 
 
     createjs.EventDispatcher.initialize(Server.prototype);
-    var server=new Server();
-    server.addEventListener("serverAnswer",serverAnswer);
+    var server = new Server();
+    server.addEventListener("serverAnswer", serverAnswer);
 
 
 
 
-    function serverAnswer(e)
-    {
+    function serverAnswer(e) {
 
 
 
-        if (menuInstance.list.currentFrame===2)  menuInstance.list.btn_done.dispatchEvent("mousedown");
+        if (menuInstance.list.currentFrame === 2) menuInstance.list.btn_done.dispatchEvent("mousedown");
 
         setLightBoxDomElements("hide");
 
-        if (e.action==="saveas")
-        {
-            isAllowed.remove=true;
-            isAllowed.save=true;
-            isAllowed.update=true;
+        if (e.action === "saveas") {
+            isAllowed.remove = true;
+            isAllowed.save = true;
+            isAllowed.update = true;
 
-            menuInstance.list.btn_delete.visible=true;
-            menuInstance.list.btn_update.visible=true;
-            menuInstance.list.mc_delete.alpha=1;
-            menuInstance.list.mc_update.alpha=1;
+            menuInstance.list.btn_delete.visible = true;
+            menuInstance.list.btn_update.visible = true;
+            menuInstance.list.mc_delete.alpha = 1;
+            menuInstance.list.mc_update.alpha = 1;
 
-            fromServer.r=e.data.r;
-            fromServer.owner=e.data.owner;
-            fromServer.type=e.data.type;
+            fromServer.r = e.data.r;
+            fromServer.owner = e.data.owner;
+            fromServer.type = e.data.type;
 
-            Helper.addUrlParameter(null,"r",fromServer.r,true);
+            Helper.addUrlParameter(null, "r", fromServer.r, true);
         }
-        else if (e.action==="delete")
-        {
+        else if (e.action === "delete") {
 
-            Helper.addUrlParameter(null,"r","",true);
+            Helper.addUrlParameter(null, "r", "", true);
 
-            isAllowed.remove=false;
-            isAllowed.save=true;
-            isAllowed.update=false;
+            isAllowed.remove = false;
+            isAllowed.save = true;
+            isAllowed.update = false;
 
-            menuInstance.list.btn_delete.visible=false;
-            menuInstance.list.btn_update.visible=false;
-            menuInstance.list.mc_delete.alpha=0.5;
-            menuInstance.list.mc_update.alpha=0.5;
+            menuInstance.list.btn_delete.visible = false;
+            menuInstance.list.btn_update.visible = false;
+            menuInstance.list.mc_delete.alpha = 0.5;
+            menuInstance.list.mc_update.alpha = 0.5;
         }
 
     }
@@ -233,12 +216,10 @@ function Settings(props)
 
 
 
-    function setLightBoxDomElements(hideOrShow)
-    {
+    function setLightBoxDomElements(hideOrShow) {
 
-        if(hideOrShow==="hide")
-        {
-            menuInstance.lightbox.visible=false;
+        if (hideOrShow === "hide") {
+            menuInstance.lightbox.visible = false;
 
 
             $("#titleInput").hide();
@@ -247,9 +228,8 @@ function Settings(props)
             $('#countInput').show();
 
         }
-        else
-        {
-            menuInstance.lightbox.visible=true;
+        else {
+            menuInstance.lightbox.visible = true;
 
 
             $("#titleInput").show();
@@ -261,38 +241,32 @@ function Settings(props)
 
     }
 
-    _this.fixDom=function(cjsElement,jqElement)
-    {
-        var counter=0;
+    _this.fixDom = function (cjsElement, jqElement) {
+        var counter = 0;
         var dummy = new createjs.Container();
-        var tween=createjs.Tween.get(dummy,{loop:true,ignoreGlobalPause:true}).wait(25);
-        tween.addEventListener("change",letsWait);
-        function letsWait()
-        {
+        var tween = createjs.Tween.get(dummy, { loop: true, ignoreGlobalPause: true }).wait(25);
+        tween.addEventListener("change", letsWait);
+        function letsWait() {
             counter++;
-            if (jqElement.length>0 || counter>25)
-            {
+            if (jqElement.length > 0 || counter > 25) {
                 createjs.Tween.removeTweens(dummy);
                 tween.removeAllEventListeners();
-                tween=undefined;
-                dummy=undefined;
+                tween = undefined;
+                dummy = undefined;
                 letsDo();
             }
         }
 
 
-        function letsDo()
-        {
+        function letsDo() {
             var trw = cjsElement.nominalBounds.width;
-            if (menuInstance.lightbox.previewSound && menuInstance.lightbox.nsLenLoop && menuInstance.lightbox.nsLenLoop.visible)
-            {
+            if (menuInstance.lightbox.previewSound && menuInstance.lightbox.nsLenLoop && menuInstance.lightbox.nsLenLoop.visible) {
                 trw = 80;
-               // if (isMobile.apple.device) trw=78;
+                // if (isMobile.apple.device) trw=78;
             }
-            if (cjsElement.name==="namesList")
-            {
-                trw=100;
-               // if (isMobile.apple.device) trw=95;
+            if (cjsElement.name === "namesList") {
+                trw = 100;
+                // if (isMobile.apple.device) trw=95;
             }
 
 
@@ -307,8 +281,8 @@ function Settings(props)
             var sx = tx1.scaleX;
 
             var sy = tx1.scaleY;
-            var w =  trw * sx;
-            var h =  cjsElement.nominalBounds.height * sy;
+            var w = trw * sx;
+            var h = cjsElement.nominalBounds.height * sy;
 
             jqElement.height(h);
             jqElement.width(w);
@@ -320,16 +294,14 @@ function Settings(props)
 
 
 
-    _this.show=function ()
-    {
+    _this.show = function () {
 
-        menuInstance.visible=true;
-        timerInstance.visible=false;
+        menuInstance.visible = true;
+        timerInstance.visible = false;
         onMenuShowNameCount();
 
 
-        waitForReady("#namesList",function ()
-        {
+        waitForReady("#namesList", function () {
             $("#namesList").hide();
         });
 
@@ -339,72 +311,75 @@ function Settings(props)
         /*=====================================================================================
                                             1000 Character Changes
         =====================================================================================*/
-        if (menuInstance.list.currentFrame===0) sliderInput();
+        if (menuInstance.list.currentFrame === 0) sliderInput();
         /*=====================================================================================
                                                 /\/\/\
         =====================================================================================*/
 
 
-        menuInstance.parent.setChildIndex(menuInstance,menuInstance.parent.numChildren-1);
+        menuInstance.parent.setChildIndex(menuInstance, menuInstance.parent.numChildren - 1);
     };
 
-    _this.hide=function ()
-    {
-        menuInstance.visible=false;
-        if (menuInstance.loader) menuInstance.loader.visible = false;
-        timerInstance.visible=true;
+    _this.hide = function () {
+        menuInstance.visible = false;
+        timerInstance.visible = true;
         $("#titleInput").hide();
         $("#selectDrop").hide();
         $("#namesList").hide();
         $("#countInput").hide();
     };
 
-    _this.fakeLoader=function(action)
-    {
-        menuInstance.visible=false;
-        if (menuInstance.loader) {
-            menuInstance.loader.visible = false;
-            if (menuInstance.loader.bar && menuInstance.loader.bar.resizable) menuInstance.loader.bar.resizable.scaleX = 0;
+    _this.fakeLoader = function (action) {
+
+        if (action === "show") {
+            menuInstance.visible = true;
+            menuInstance.loader.bar.resizable.scaleX = Math.getRandomArbitrary(0.3, 0.8);
+            menuInstance.loader.visible = true;
+
+
+
+
+            $('#countInput').hide();
+
+
         }
-        $('#countInput').hide();
+        else {
+            menuInstance.visible = false;
+            menuInstance.loader.bar.resizable.scaleX = 0;
+            menuInstance.loader.visible = false;
+        }
     };
 
-    _this.removeWinner=function(newList)
-    {
-        listCollector.list=newList.split("\n").filter(function (el)
-        {
+
+    _this.removeWinner = function (newList) {
+        listCollector.list = newList.split("\n").filter(function (el) {
             return $.trim(el) !== "";
         });
         onMenuShowNameCount();
+
     };
 
-    _this.loaderReset=function()
-    {
-        menuInstance.visible=false;
+
+    _this.loaderReset = function () {
+        menuInstance.visible = true;
         menuInstance.mouseEnabled = false;
-        if (menuInstance.loader) {
-            menuInstance.loader.visible = false;
-            if (menuInstance.loader.bar && menuInstance.loader.bar.resizable) menuInstance.loader.bar.resizable.scaleX = 0;
-        }
+        menuInstance.loader.bar.resizable.scaleX = 0;
+        menuInstance.loader.visible = true;
 
 
-        waitForReady("#titleInput",function ()
-        {
+        waitForReady("#titleInput", function () {
             $("#titleInput").hide();
         });
 
-        waitForReady("#selectDrop",function ()
-        {
+        waitForReady("#selectDrop", function () {
             $("#selectDrop").hide();
         });
 
-        waitForReady("#namesList",function ()
-        {
+        waitForReady("#namesList", function () {
             $("#namesList").hide();
         });
 
-        waitForReady("#countInput",function ()
-        {
+        waitForReady("#countInput", function () {
             $("#countInput").hide();
         });
 
@@ -412,30 +387,25 @@ function Settings(props)
 
     };
 
-    _this.loaderUpdate=function(val)
-    {
-        menuInstance.loader.bar.resizable.scaleX=val;
+    _this.loaderUpdate = function (val) {
+        menuInstance.loader.bar.resizable.scaleX = val;
     };
 
 
 
-    function showPremium()
-    {
-        menuInstance.list.mc_delete.removeEventListener("mousedown",showPremium);
-        menuInstance.list.mc_save.removeEventListener("mousedown",showPremium);
-        menuInstance.list.mc_update.removeEventListener("mousedown",showPremium);
+    function showPremium() {
+        menuInstance.list.mc_delete.removeEventListener("mousedown", showPremium);
+        menuInstance.list.mc_save.removeEventListener("mousedown", showPremium);
+        menuInstance.list.mc_update.removeEventListener("mousedown", showPremium);
 
-        if (fromServer.type==="free" && !menuInstance.list.premium1.visible)
-        {
-            if (createjs.Ticker.paused)
-            {
+        if (fromServer.type === "free" && !menuInstance.list.premium1.visible) {
+            if (createjs.Ticker.paused) {
                 menuInstance.list.premium1.visible = true;
             }
-            else
-            {
+            else {
                 menuInstance.list.premium1.alpha = 0;
                 menuInstance.list.premium1.visible = true;
-                createjs.Tween.get(menuInstance.list.premium1).to({alpha:1},500);
+                createjs.Tween.get(menuInstance.list.premium1).to({ alpha: 1 }, 500);
             }
 
         }
@@ -445,54 +415,48 @@ function Settings(props)
 
 
 
-    function forServer()
-    {
+    function forServer() {
 
         menuInstance.list.btn_delete.removeAllEventListeners();
-        menuInstance.list.btn_delete.addEventListener("mousedown",saveOptions);
+        menuInstance.list.btn_delete.addEventListener("mousedown", saveOptions);
 
 
         menuInstance.list.btn_update.removeAllEventListeners();
-        menuInstance.list.btn_update.addEventListener("mousedown",saveOptions);
+        menuInstance.list.btn_update.addEventListener("mousedown", saveOptions);
 
         menuInstance.list.btn_new.removeAllEventListeners();
-        menuInstance.list.btn_new.addEventListener("mousedown",saveOptions);
+        menuInstance.list.btn_new.addEventListener("mousedown", saveOptions);
 
 
-        function saveOptions(e)
-        {
+        function saveOptions(e) {
 
             calc();
 
             menuInstance.lightbox.nsLenLoop.visible = false;
 
             setLightBoxDomElements("show");
-            var whatWeDoing	= e.currentTarget.name;
+            var whatWeDoing = e.currentTarget.name;
 
-            if ((whatWeDoing==='btn_delete' || whatWeDoing==='btn_update') && $.trim($("#titleInput").val())==="")
-            {
-                waitForReady("#titleInput",function ()
-                {
+            if ((whatWeDoing === 'btn_delete' || whatWeDoing === 'btn_update') && $.trim($("#titleInput").val()) === "") {
+                waitForReady("#titleInput", function () {
 
                     $("#selectDrop").hide();
                     $("#titleInput").show();
                     $("#titleInput").val(fromServer.title);
-                    _this.fixDom(menuInstance.lightbox.titleInput,$("#titleInput"));
+                    _this.fixDom(menuInstance.lightbox.titleInput, $("#titleInput"));
                 });
 
 
 
             }
-            else if (whatWeDoing==='btn_new')
-            {
+            else if (whatWeDoing === 'btn_new') {
 
-                waitForReady("#titleInput",function ()
-                {
+                waitForReady("#titleInput", function () {
 
                     $("#selectDrop").hide();
                     $("#titleInput").show();
                     $("#titleInput").val("");
-                    _this.fixDom(menuInstance.lightbox.titleInput,$("#titleInput"));
+                    _this.fixDom(menuInstance.lightbox.titleInput, $("#titleInput"));
                 });
 
 
@@ -502,18 +466,16 @@ function Settings(props)
 
 
 
-            var isReadOnly=(whatWeDoing=== 'btn_delete');
+            var isReadOnly = (whatWeDoing === 'btn_delete');
             $("#titleInput").prop("readonly", isReadOnly);
 
 
 
             menuInstance.lightbox.grc_cancel.removeAllEventListeners();
-            menuInstance.lightbox.grc_cancel.addEventListener("mousedown",function(e)
-            {
+            menuInstance.lightbox.grc_cancel.addEventListener("mousedown", function (e) {
 
                 setLightBoxDomElements("hide");
-                if (menuInstance.list.currentFrame===2)
-                {
+                if (menuInstance.list.currentFrame === 2) {
 
                     $("#namesList").show();
                 }
@@ -522,39 +484,35 @@ function Settings(props)
 
 
             menuInstance.lightbox.grc_set.removeAllEventListeners();
-            menuInstance.lightbox.grc_set.addEventListener("mousedown",function(e)
-            {
+            menuInstance.lightbox.grc_set.addEventListener("mousedown", function (e) {
 
 
-                var title=$.trim($("#titleInput").val());
-                if (title==="")
-                {
-                    menuInstance.lightbox.info.color="red";
-                    menuInstance.lightbox.info.text=language.translate("Name Your Timer :-)");
+                var title = $.trim($("#titleInput").val());
+                if (title === "") {
+                    menuInstance.lightbox.info.color = "red";
+                    menuInstance.lightbox.info.text = language.translate("Name Your Timer :-)");
                     return;
                 }
 
-                fromServer.title=title;
+                fromServer.title = title;
 
-                var tempList=$("#namesList").val().split("\n").filter(function (el)
-                {
+                var tempList = $("#namesList").val().split("\n").filter(function (el) {
                     return $.trim(el) !== "";
                 });
 
-                if (tempList.length!==0)listCollector.list=tempList;
+                if (tempList.length !== 0) listCollector.list = tempList;
 
 
-                var list=listCollector.list.join(",");
+                var list = listCollector.list.join(",");
 
-                var obj={type:"premium",list:list,title:title,url:Helper.removeUrlParameter("r",null)};
+                var obj = { type: "premium", list: list, title: title, url: Helper.removeUrlParameter("r", null) };
 
 
 
-                if (menuInstance.list.currentFrame===0)
-                {
-                    var currentList=JSON.stringify(listCollector.list.sort());
-                    var defaultList=JSON.stringify(Helper.defaultList.split(",").sort());
-                    if(currentList===defaultList) obj.list="";
+                if (menuInstance.list.currentFrame === 0) {
+                    var currentList = JSON.stringify(listCollector.list.sort());
+                    var defaultList = JSON.stringify(Helper.defaultList.split(",").sort());
+                    if (currentList === defaultList) obj.list = "";
                 }
 
 
@@ -564,35 +522,29 @@ function Settings(props)
 
 
 
-                if(whatWeDoing === 'btn_delete')
-                {
-                    obj.r=fromServer.r;
+                if (whatWeDoing === 'btn_delete') {
+                    obj.r = fromServer.r;
                     server.remove(obj);
                 }
-                else if(whatWeDoing === 'btn_update')
-                {
-                    obj.r=fromServer.r;
+                else if (whatWeDoing === 'btn_update') {
+                    obj.r = fromServer.r;
                     server.save(obj);
                 }
-                else if(whatWeDoing === 'btn_new')
-                {
+                else if (whatWeDoing === 'btn_new') {
                     server.saveas(obj);
                 }
             });
 
-            menuInstance.lightbox.info.color="#000000";
-            if(whatWeDoing === 'btn_delete')
-            {
+            menuInstance.lightbox.info.color = "#000000";
+            if (whatWeDoing === 'btn_delete') {
                 menuInstance.lightbox.info.text = language.translate("Delete this Timer?\n\n(This is Permanent!)");
 
             }
-            else if(whatWeDoing === 'btn_update')
-            {
+            else if (whatWeDoing === 'btn_update') {
                 menuInstance.lightbox.info.text = language.translate("\nUpdate / Save Changes\nto this Timer?");
 
             }
-            else if(whatWeDoing === 'btn_new')
-            {
+            else if (whatWeDoing === 'btn_new') {
                 menuInstance.lightbox.info.text = language.translate("\nSave as New Timer?");
 
             }
@@ -602,14 +554,13 @@ function Settings(props)
 
     }
 
-    function calculateMilliseconds(val)
-    {
-        var timerParts=val.split(":");
-        var hours=parseInt(timerParts[0])*60*60*1000;
-        var minutes=parseInt(timerParts[1])*60*1000;
-        var seconds=parseInt(timerParts[2])*1000;
-        var timeMilliseconds=hours+minutes+seconds;
-        if (timeMilliseconds===0) timeMilliseconds=10000;
+    function calculateMilliseconds(val) {
+        var timerParts = val.split(":");
+        var hours = parseInt(timerParts[0]) * 60 * 60 * 1000;
+        var minutes = parseInt(timerParts[1]) * 60 * 1000;
+        var seconds = parseInt(timerParts[2]) * 1000;
+        var timeMilliseconds = hours + minutes + seconds;
+        if (timeMilliseconds === 0) timeMilliseconds = 10000;
 
 
 
@@ -617,82 +568,73 @@ function Settings(props)
     }
 
 
-    function calc()
-    {
+    function calc() {
         var clock;
         var timeMilliseconds;
-        if (menuInstance.timer.newWay.visible)
-        {
-            timeMilliseconds=calculateMilliseconds(menuInstance.timer.newWay.display.valueForTimer);
-            clock=menuInstance.timer.newWay.clock.text.split(":");
-            clock=clock[0]+":"+clock[1]+":"+"00";
+        if (menuInstance.timer.newWay.visible) {
+            timeMilliseconds = calculateMilliseconds(menuInstance.timer.newWay.display.valueForTimer);
+            clock = menuInstance.timer.newWay.clock.text.split(":");
+            clock = clock[0] + ":" + clock[1] + ":" + "00";
         }
-        else
-        {
-            timeMilliseconds=calculateMilliseconds(menuInstance.timer.oldWay.display.text);
+        else {
+            timeMilliseconds = calculateMilliseconds(menuInstance.timer.oldWay.display.text);
         }
 
 
 
-        var eventData={};
-        var characterStyle=0;
+        var eventData = {};
+        var characterStyle = 0;
 
         $('#countInput').hide();
 
-        if (menuInstance.list.choiceToggle)
-        {
-            characterStyle=menuInstance.list.choiceToggle.currentFrame;
-            setTimeout(function ()
-            {
-                Helper.addUrlParameter(null,"characterStyle", characterStyle,true);
-            },30);
+        if (menuInstance.list.choiceToggle) {
+            characterStyle = menuInstance.list.choiceToggle.currentFrame;
+            setTimeout(function () {
+                Helper.addUrlParameter(null, "characterStyle", characterStyle, true);
+            }, 30);
         }
 
 
-        if(menuInstance.list.currentFrame===0)
-        {
-            characterNum=(parseInt(characterNum)===1)?2:characterNum;
+        if (menuInstance.list.currentFrame === 0) {
+            characterNum = (parseInt(characterNum) === 1) ? 2 : characterNum;
             slider.setCharNum(characterNum);
-            Helper.addUrlParameter(null,"characters",characterNum,true);
+            Helper.addUrlParameter(null, "characters", characterNum, true);
 
 
-            eventData={
-                timerMilliseconds:timeMilliseconds,
-                characterNum:characterNum,
+            eventData = {
+                timerMilliseconds: timeMilliseconds,
+                characterNum: characterNum,
                 showNumbers: menuInstance.list.tickcross.tick.visible,
                 isLogoVisible: isLogoVisible,
-                showNames:false,
-                display:comboSelectOptions.display,
-                sfx:comboSelectOptions.sfx,
-                nslen:nslen,
-                characterStyle:characterStyle,
-                clock:clock?{time:clock,ampm:menuInstance.timer.newWay.ampm.text}:undefined
+                showNames: false,
+                display: comboSelectOptions.display,
+                sfx: comboSelectOptions.sfx,
+                nslen: nslen,
+                characterStyle: characterStyle,
+                clock: clock ? { time: clock, ampm: menuInstance.timer.newWay.ampm.text } : undefined
             };
         }
-        else
-        {
+        else {
 
-            var currentList=listCollector.list.clone();
-            if (fromServer.type==="free")
-            {
-                if(currentList.length>characterMaxNum)
-                {
+            var currentList = listCollector.list.clone();
+            if (fromServer.type === "free") {
+                if (currentList.length > characterMaxNum) {
 
-                    currentList.length=characterMaxNum;
+                    currentList.length = characterMaxNum;
                     //// alert ("Sorry, free users can't change lists, you can use only 6 characters, \n so list was trimmed");
                 }
 
             }
 
-            eventData={
-                timerMilliseconds:timeMilliseconds,
-                list:currentList,
-                display:comboSelectOptions.display,
+            eventData = {
+                timerMilliseconds: timeMilliseconds,
+                list: currentList,
+                display: comboSelectOptions.display,
                 isLogoVisible: isLogoVisible,
-                sfx:comboSelectOptions.sfx,
-                nslen:nslen,
-                characterStyle:characterStyle,
-                clock:clock?{time:clock,ampm:menuInstance.timer.newWay.ampm.text}:undefined
+                sfx: comboSelectOptions.sfx,
+                nslen: nslen,
+                characterStyle: characterStyle,
+                clock: clock ? { time: clock, ampm: menuInstance.timer.newWay.ampm.text } : undefined
             };
 
 
@@ -704,74 +646,64 @@ function Settings(props)
 
 
 
-        if (menuInstance.timer.oldWay.visible)
-        {
-            Helper.addUrlParameter(null,"countdown", (timeMilliseconds/1000).toString().toHHMMSS(),true);
+        if (menuInstance.timer.oldWay.visible) {
+            Helper.addUrlParameter(null, "countdown", (timeMilliseconds / 1000).toString().toHHMMSS(), true);
 
-            setTimeout(function ()
-            {
+            setTimeout(function () {
                 Helper.removeUrlParameter("clock", null, true);
-            },30);
+            }, 30);
 
-            setTimeout(function ()
-            {
+            setTimeout(function () {
                 Helper.removeUrlParameter("clockType", null, true);
-            },60);
+            }, 60);
 
 
 
 
 
         }
-        else
-        {
+        else {
 
-            Helper.addUrlParameter(null,"clock", menuInstance.timer.newWay.clock.text,true);
+            Helper.addUrlParameter(null, "clock", menuInstance.timer.newWay.clock.text, true);
 
 
-            setTimeout(function ()
-            {
-                var type=(menuInstance.timer.newWay.ampm.text==="")?"24":menuInstance.timer.newWay.ampm.text;
-                Helper.addUrlParameter(null,"clockType", type,true);
-            },30);
+            setTimeout(function () {
+                var type = (menuInstance.timer.newWay.ampm.text === "") ? "24" : menuInstance.timer.newWay.ampm.text;
+                Helper.addUrlParameter(null, "clockType", type, true);
+            }, 30);
 
-            setTimeout(function ()
-            {
+            setTimeout(function () {
                 Helper.removeUrlParameter("countdown", null, true);
-            },60);
+            }, 60);
 
 
         }
         return eventData;
     }
 
-    function goLive()
-    {
+    function goLive() {
         createjs.Tween.removeTweens(internalObject);
-        createjs.Tween.get(internalObject,{loop:true,ignoreGlobalPause:true}).wait(1000).call(setClockDisplay);
+        createjs.Tween.get(internalObject, { loop: true, ignoreGlobalPause: true }).wait(1000).call(setClockDisplay);
         setClockDisplay();
     }
 
 
-    function setClockDisplay()
-    {
+    function setClockDisplay() {
 
-        var seconds=Helper.calculateClock(menuInstance.timer.newWay.clock.text,menuInstance.timer.newWay.ampm.text)/1000;
-        var hhmmss=seconds.toString().toHHMMSS().split(":");
-        var display="";
-        if (parseInt(hhmmss[0])!==0)
-        {
-            display+=hhmmss[0]+" hrs, ";
+        var seconds = Helper.calculateClock(menuInstance.timer.newWay.clock.text, menuInstance.timer.newWay.ampm.text) / 1000;
+        var hhmmss = seconds.toString().toHHMMSS().split(":");
+        var display = "";
+        if (parseInt(hhmmss[0]) !== 0) {
+            display += hhmmss[0] + " hrs, ";
         }
-        seconds=60-new Date().getSeconds();
-        if (seconds===60) seconds=0;
-        display+=hhmmss[1]+" mins, "+((seconds<10)?"0":"")+seconds+" secs";
-        menuInstance.timer.newWay.display.text=display;
-        menuInstance.timer.newWay.display.valueForTimer=hhmmss[0]+":"+hhmmss[1]+":00";
+        seconds = 60 - new Date().getSeconds();
+        if (seconds === 60) seconds = 0;
+        display += hhmmss[1] + " mins, " + ((seconds < 10) ? "0" : "") + seconds + " secs";
+        menuInstance.timer.newWay.display.text = display;
+        menuInstance.timer.newWay.display.valueForTimer = hhmmss[0] + ":" + hhmmss[1] + ":00";
     }
 
-    _this.init=function()
-    {
+    _this.init = function () {
 
 
         forServer();
@@ -793,8 +725,7 @@ function Settings(props)
 
 
         //bubble (numbers and names show or not)
-        if (!menuInstance.list.tickcross.tickLock.visible)
-        {
+        if (!menuInstance.list.tickcross.tickLock.visible) {
             menuInstance.list.tickcross.cross.visible = (fromURL.bubble === "true");
             showNumbersChange();
             menuInstance.list.tickcross.cursor = "pointer";
@@ -813,8 +744,7 @@ function Settings(props)
         var digitCount = 0;
         var i, button;
 
-        for (i = 0; i < 10; i++)
-        {
+        for (i = 0; i < 10; i++) {
             button = menuInstance.timer.oldWay["btn" + i];
             button.removeAllEventListeners();
             button.addEventListener("mousedown", setDigit);
@@ -844,79 +774,75 @@ function Settings(props)
 
 
 
-        menuInstance.timer.newWay.am_btn.addEventListener("mousedown",function (e)
-        {
+        menuInstance.timer.newWay.am_btn.addEventListener("mousedown", function (e) {
             dropAll();
             e.currentTarget.gotoAndStop(1);
-            menuInstance.timer.newWay.ampm.text="AM";
+            menuInstance.timer.newWay.ampm.text = "AM";
             slider_hr.setMax(12);
             slider_hr.setMin(1);
 
-            var currentHr=parseInt(menuInstance.timer.newWay.clock.text.split(":")[0]);
-            if (currentHr>12)currentHr-=12;
-            if (currentHr===0) currentHr=12;
+            var currentHr = parseInt(menuInstance.timer.newWay.clock.text.split(":")[0]);
+            if (currentHr > 12) currentHr -= 12;
+            if (currentHr === 0) currentHr = 12;
 
-            menuInstance.timer.newWay.hr_txt.text="12";
-            menuInstance.timer.newWay.mn_txt.text="01";
+            menuInstance.timer.newWay.hr_txt.text = "12";
+            menuInstance.timer.newWay.mn_txt.text = "01";
 
-            var addon=(currentHr<10)?"0":"";
-            var answer=addon+currentHr.toString()+":";
-            answer+=menuInstance.timer.newWay.clock.text.split(":")[1];
-            menuInstance.timer.newWay.clock.text=answer;
+            var addon = (currentHr < 10) ? "0" : "";
+            var answer = addon + currentHr.toString() + ":";
+            answer += menuInstance.timer.newWay.clock.text.split(":")[1];
+            menuInstance.timer.newWay.clock.text = answer;
             slider_hr.setCharNum(currentHr);
             setClockDisplay();
 
 
         });
 
-        menuInstance.timer.newWay.pm_btn.addEventListener("mousedown",function (e)
-        {
+        menuInstance.timer.newWay.pm_btn.addEventListener("mousedown", function (e) {
             dropAll();
             e.currentTarget.gotoAndStop(1);
-            menuInstance.timer.newWay.ampm.text="PM";
+            menuInstance.timer.newWay.ampm.text = "PM";
             slider_hr.setMax(12);
             slider_hr.setMin(1);
-            menuInstance.timer.newWay.hr_txt.text="12";
-            menuInstance.timer.newWay.mn_txt.text="01";
+            menuInstance.timer.newWay.hr_txt.text = "12";
+            menuInstance.timer.newWay.mn_txt.text = "01";
 
-            var currentHr=parseInt(menuInstance.timer.newWay.clock.text.split(":")[0]);
-            if (currentHr>12)currentHr-=12;
-            if (currentHr===0) currentHr=12;
+            var currentHr = parseInt(menuInstance.timer.newWay.clock.text.split(":")[0]);
+            if (currentHr > 12) currentHr -= 12;
+            if (currentHr === 0) currentHr = 12;
 
-            var addon=(currentHr<10)?"0":"";
-            var answer=addon+currentHr.toString()+":";
-            answer+=menuInstance.timer.newWay.clock.text.split(":")[1];
-            menuInstance.timer.newWay.clock.text=answer;
+            var addon = (currentHr < 10) ? "0" : "";
+            var answer = addon + currentHr.toString() + ":";
+            answer += menuInstance.timer.newWay.clock.text.split(":")[1];
+            menuInstance.timer.newWay.clock.text = answer;
             slider_hr.setCharNum(currentHr);
             setClockDisplay();
         });
 
-        menuInstance.timer.newWay.full_btn.addEventListener("mousedown",function (e)
-        {
+        menuInstance.timer.newWay.full_btn.addEventListener("mousedown", function (e) {
             dropAll();
             e.currentTarget.gotoAndStop(1);
             slider_hr.setMax(23);
             slider_hr.setMin(0);
 
-            var currentHr=parseInt(menuInstance.timer.newWay.clock.text.split(":")[0]);
-            if (menuInstance.timer.newWay.ampm.text.toLowerCase()==="pm") currentHr+=12;
-            if (currentHr===24) currentHr=0;
+            var currentHr = parseInt(menuInstance.timer.newWay.clock.text.split(":")[0]);
+            if (menuInstance.timer.newWay.ampm.text.toLowerCase() === "pm") currentHr += 12;
+            if (currentHr === 24) currentHr = 0;
 
-            var addon=(currentHr<10)?"0":"";
-            var answer=addon+currentHr.toString()+":";
-            answer+=menuInstance.timer.newWay.clock.text.split(":")[1];
-            menuInstance.timer.newWay.clock.text=answer;
+            var addon = (currentHr < 10) ? "0" : "";
+            var answer = addon + currentHr.toString() + ":";
+            answer += menuInstance.timer.newWay.clock.text.split(":")[1];
+            menuInstance.timer.newWay.clock.text = answer;
             slider_hr.setCharNum(currentHr);
 
-            menuInstance.timer.newWay.ampm.text="";
-            menuInstance.timer.newWay.hr_txt.text="23";
-            menuInstance.timer.newWay.mn_txt.text="00";
+            menuInstance.timer.newWay.ampm.text = "";
+            menuInstance.timer.newWay.hr_txt.text = "23";
+            menuInstance.timer.newWay.mn_txt.text = "00";
             setClockDisplay();
 
         });
 
-        function dropAll()
-        {
+        function dropAll() {
             menuInstance.timer.newWay.am_btn.gotoAndStop(0);
             menuInstance.timer.newWay.pm_btn.gotoAndStop(0);
             menuInstance.timer.newWay.full_btn.gotoAndStop(0);
@@ -925,126 +851,117 @@ function Settings(props)
 
 
 
-        var slider_hr=new Slider(
+        var slider_hr = new Slider(
             menuInstance.timer.newWay.thumb_hr,
-            {x:127,y:menuInstance.timer.newWay.thumb_hr.y},
-            {x:385,y:menuInstance.timer.newWay.thumb_hr.y},
-            {min:1,max:12}
+            { x: 127, y: menuInstance.timer.newWay.thumb_hr.y },
+            { x: 385, y: menuInstance.timer.newWay.thumb_hr.y },
+            { min: 1, max: 12 }
         );
-        slider_hr.addEventListener("sliding",slidingHr);
-        slider_hr.autoCorrect=true;
-        slider_hr.isClock=true;
+        slider_hr.addEventListener("sliding", slidingHr);
+        slider_hr.autoCorrect = true;
+        slider_hr.isClock = true;
         slider_hr.enableSlider();
 
 
 
 
 
-        function slidingHr(e)
-        {
-            var currentVal=menuInstance.timer.newWay.clock.text;
-            var addon=(e.data.characterNum<10)?"0":"";
-            var answer=addon+e.data.characterNum.toString()+":";
-            answer+=currentVal.split(":")[1];
-            menuInstance.timer.newWay.clock.text=answer;
+        function slidingHr(e) {
+            var currentVal = menuInstance.timer.newWay.clock.text;
+            var addon = (e.data.characterNum < 10) ? "0" : "";
+            var answer = addon + e.data.characterNum.toString() + ":";
+            answer += currentVal.split(":")[1];
+            menuInstance.timer.newWay.clock.text = answer;
             setClockDisplay();
         }
 
 
-        var slider_mn=new Slider(
+        var slider_mn = new Slider(
             menuInstance.timer.newWay.thumb_mn,
-            {x:127,y:menuInstance.timer.newWay.thumb_mn.y},
-            {x:385,y:menuInstance.timer.newWay.thumb_mn.y},
-            {min:0,max:59}
+            { x: 127, y: menuInstance.timer.newWay.thumb_mn.y },
+            { x: 385, y: menuInstance.timer.newWay.thumb_mn.y },
+            { min: 0, max: 59 }
         );
 
-        slider_mn.addEventListener("sliding",slidingMn);
-        slider_mn.autoCorrect=true;
-        slider_mn.isClock=true;
+        slider_mn.addEventListener("sliding", slidingMn);
+        slider_mn.autoCorrect = true;
+        slider_mn.isClock = true;
         slider_mn.enableSlider();
 
 
 
 
-        function slidingMn(e)
-        {
-            var currentVal=menuInstance.timer.newWay.clock.text;
-            var addon=(e.data.characterNum<10)?"0":"";
-            menuInstance.timer.newWay.clock.text=currentVal.split(":")[0]+":"+addon+e.data.characterNum.toString();
+        function slidingMn(e) {
+            var currentVal = menuInstance.timer.newWay.clock.text;
+            var addon = (e.data.characterNum < 10) ? "0" : "";
+            menuInstance.timer.newWay.clock.text = currentVal.split(":")[0] + ":" + addon + e.data.characterNum.toString();
             setClockDisplay();
         }
 
 
 
-        if (fromURL.clock==="")
-        {
+        if (fromURL.clock === "") {
             setPlus10Minutes();
         }
-        else
-        {
+        else {
             dropAll();
             menuInstance.timer.newWay.clock.text = fromURL.clock;
-            menuInstance.timer.newWay.ampm.text=(fromURL.clockType==="24")?"":fromURL.clockType;
+            menuInstance.timer.newWay.ampm.text = (fromURL.clockType === "24") ? "" : fromURL.clockType;
 
-            switch (fromURL.clockType)
-            {
+            switch (fromURL.clockType) {
                 case "AM":
                     slider_hr.setMax(12);
                     slider_hr.setMin(1);
-                    menuInstance.timer.newWay.hr_txt.text="12";
-                    menuInstance.timer.newWay.mn_txt.text="01";
+                    menuInstance.timer.newWay.hr_txt.text = "12";
+                    menuInstance.timer.newWay.mn_txt.text = "01";
                     menuInstance.timer.newWay.am_btn.gotoAndStop(1);
                     break;
                 case "PM":
                     slider_hr.setMax(12);
                     slider_hr.setMin(1);
-                    menuInstance.timer.newWay.hr_txt.text="12";
-                    menuInstance.timer.newWay.mn_txt.text="01";
+                    menuInstance.timer.newWay.hr_txt.text = "12";
+                    menuInstance.timer.newWay.mn_txt.text = "01";
                     menuInstance.timer.newWay.pm_btn.gotoAndStop(1);
                     break;
                 case "24":
                     slider_hr.setMax(23);
                     slider_hr.setMin(0);
-                    menuInstance.timer.newWay.hr_txt.text="23";
-                    menuInstance.timer.newWay.mn_txt.text="00";
+                    menuInstance.timer.newWay.hr_txt.text = "23";
+                    menuInstance.timer.newWay.mn_txt.text = "00";
                     menuInstance.timer.newWay.full_btn.gotoAndStop(1);
                     break;
-            }
 
-            if (fromURL.clock && typeof fromURL.clock === "string" && fromURL.clock.indexOf(":") !== -1) {
-                var hhmm=fromURL.clock.split(":");
-                slider_mn.setCharNum(parseInt(hhmm[1] || 0));
-                slider_hr.setCharNum(parseInt(hhmm[0] || 0));
-                setClockDisplay();
             }
+            var hhmm = fromURL.clock.split(":");
+            slider_mn.setCharNum(parseInt(hhmm[1]));
+            slider_hr.setCharNum(parseInt(hhmm[0]));
+            setClockDisplay();
 
         }
 
 
 
-        menuInstance.timer.newWay.set_btn.addEventListener("mousedown",function (e)
-        {
+        menuInstance.timer.newWay.set_btn.addEventListener("mousedown", function (e) {
             //var timeMillisecond=calculateMilliseconds(menuInstance.timer.newWay.display.valueForTimer);
             //complete(timeMillisecond);
 
 
 
-            createjs.Ticker.paused=false;
+            createjs.Ticker.paused = false;
 
             var event = new createjs.Event("complete");
-            event.data=calc();
+            event.data = calc();
             $('#countInput').hide();
 
 
 
-            setTimeout(function ()
-            {
+            setTimeout(function () {
                 _this.dispatchEvent(event);
                 setLightBoxDomElements("hide");
                 $('#countInput').hide();
-                menuInstance.back.visible=true;
+                menuInstance.back.visible = true;
 
-            },90);
+            }, 90);
 
 
 
@@ -1079,41 +996,38 @@ function Settings(props)
 
 
 
-        if (!menuInstance.list.tickcross.tickLock.visible)
-        {
+        if (!menuInstance.list.tickcross.tickLock.visible) {
             menuInstance.list.tickcross.removeAllEventListeners();
-            menuInstance.list.tickcross.addEventListener("mousedown",showNumbersChange);
+            menuInstance.list.tickcross.addEventListener("mousedown", showNumbersChange);
         }
 
 
         menuInstance.back.removeAllEventListeners();
-        menuInstance.back.addEventListener("mousedown",backToTimer);
+        menuInstance.back.addEventListener("mousedown", backToTimer);
 
         menuInstance.list.tab0.removeAllEventListeners();
-        menuInstance.list.tab0.addEventListener("mousedown",switchTabs);
+        menuInstance.list.tab0.addEventListener("mousedown", switchTabs);
         menuInstance.list.tab1.removeAllEventListeners();
-        menuInstance.list.tab1.addEventListener("mousedown",switchTabs);
+        menuInstance.list.tab1.addEventListener("mousedown", switchTabs);
 
 
 
 
-        if (menuInstance.list.choiceToggle)
-        {
-            cache=new Cache();
+        if (menuInstance.list.choiceToggle) {
+            cache = new Cache();
 
             menuInstance.list.choiceToggle.removeAllEventListeners();
-            menuInstance.list.choiceToggle.addEventListener("mousedown",function ()
-            {
+            menuInstance.list.choiceToggle.addEventListener("mousedown", function () {
 
-                var frame=(menuInstance.list.choiceToggle.currentFrame===menuInstance.list.choiceToggle.totalFrames-1)?0:menuInstance.list.choiceToggle.currentFrame+1;
+                var frame = (menuInstance.list.choiceToggle.currentFrame === menuInstance.list.choiceToggle.totalFrames - 1) ? 0 : menuInstance.list.choiceToggle.currentFrame + 1;
                 menuInstance.list.choiceToggle.gotoAndStop(frame);
                 menuInstance.list.choiceToggle.updateCache();
 
                 var event = new createjs.Event("change");
                 menuInstance.list.choiceToggle.gotoAndStop(frame);
                 menuInstance.list.choiceToggle.updateCache();
-                event.data={
-                    characterStyle:frame
+                event.data = {
+                    characterStyle: frame
                 };
                 _this.dispatchEvent(event);
 
@@ -1130,37 +1044,30 @@ function Settings(props)
 
 
 
-        function prepareSelect(type)
-        {
+        function prepareSelect(type) {
             var selectedIndex;
             var i;
 
             $("#selectDrop").empty();
-            if (type==="display")
-            {
+            if (type === "display") {
 
                 var versions = Helper.defaultDisplay;
-                selectedIndex=comboSelectedIndexes.display;
-                for (i = 0; i < versions.length; i++)
-                {
+                selectedIndex = comboSelectedIndexes.display;
+                for (i = 0; i < versions.length; i++) {
                     $("#selectDrop").append($("<option></option>").attr("value", i).text(versions[i]));
                 }
 
 
             }
-            else  if (type==="sound")
-            {
-                selectedIndex=comboSelectedIndexes.sfx;
-                for (i = 0; i < sounds.length; i++)
-                {
+            else if (type === "sound") {
+                selectedIndex = comboSelectedIndexes.sfx;
+                for (i = 0; i < sounds.length; i++) {
                     $("#selectDrop").append($("<option></option>").attr("value", i).text(sounds[i].niceName));
                 }
 
                 $("#selectDrop").off("change");
-                $("#selectDrop").on('change', function()
-                {
-                    if(menuInstance.lightbox.previewSound.currentFrame===1)
-                    {
+                $("#selectDrop").on('change', function () {
+                    if (menuInstance.lightbox.previewSound.currentFrame === 1) {
                         if (demoSound) demoSound.stop();
                         menuInstance.lightbox.previewSound.gotoAndStop(0);
                     }
@@ -1172,7 +1079,7 @@ function Settings(props)
             $("#selectDrop")[0].selectedIndex = selectedIndex;
             //$("#selectDrop").visible();
             $("#selectDrop").show();
-            _this.fixDom(menuInstance.lightbox.selectDrop,$("#selectDrop"));
+            _this.fixDom(menuInstance.lightbox.selectDrop, $("#selectDrop"));
 
             $(window).off("resize", resizer);
             $(window).resize(resizer);
@@ -1180,39 +1087,33 @@ function Settings(props)
 
         }
 
-        function resizer()
-        {
-            _this.fixDom(menuInstance.lightbox.selectDrop,$("#selectDrop"));
+        function resizer() {
+            _this.fixDom(menuInstance.lightbox.selectDrop, $("#selectDrop"));
         }
 
 
-        if (fromURL.clock!=="")
-        {
-            menuInstance.timer.oldWay.visible=false;
-            menuInstance.timer.newWay.visible=true;
+        if (fromURL.clock !== "") {
+            menuInstance.timer.oldWay.visible = false;
+            menuInstance.timer.newWay.visible = true;
             goLive();
 
         }
 
 
-        menuInstance.timer.btn_clock.addEventListener("mousedown",function ()
-        {
-            if (menuInstance.timer.oldWay.visible)
-            {
-                menuInstance.timer.oldWay.visible=false;
-                menuInstance.timer.newWay.visible=true;
+        menuInstance.timer.btn_clock.addEventListener("mousedown", function () {
+            if (menuInstance.timer.oldWay.visible) {
+                menuInstance.timer.oldWay.visible = false;
+                menuInstance.timer.newWay.visible = true;
 
                 goLive();
 
-                if (!Helper.getURLparameter("clock"))
-                {
+                if (!Helper.getURLparameter("clock")) {
                     setPlus10Minutes();
                 }
             }
-            else
-            {
-                menuInstance.timer.oldWay.visible=true;
-                menuInstance.timer.newWay.visible=false;
+            else {
+                menuInstance.timer.oldWay.visible = true;
+                menuInstance.timer.newWay.visible = false;
                 createjs.Tween.removeTweens(internalObject);
             }
 
@@ -1222,33 +1123,30 @@ function Settings(props)
 
 
 
-        function setPlus10Minutes()
-        {
+        function setPlus10Minutes() {
             dropAll();
-            var forwardTime=Helper.forwardTime(1000*60*10);
+            var forwardTime = Helper.forwardTime(1000 * 60 * 10);
 
             slider_mn.setCharNum(parseInt(forwardTime.minutes));
             slider_hr.setCharNum(parseInt(forwardTime.hours12));
 
             menuInstance.timer.newWay.clock.text = forwardTime.hours12 + ':' + forwardTime.minutes;
-            menuInstance.timer.newWay.ampm.text=forwardTime.ampm;
-            menuInstance.timer.newWay[forwardTime.ampm.toLowerCase()+"_btn"].gotoAndStop(1);
+            menuInstance.timer.newWay.ampm.text = forwardTime.ampm;
+            menuInstance.timer.newWay[forwardTime.ampm.toLowerCase() + "_btn"].gotoAndStop(1);
             setClockDisplay();
         }
 
 
 
 
-        menuInstance.timer.btn_hhmmss.addEventListener("mousedown",function ()
-        {
+        menuInstance.timer.btn_hhmmss.addEventListener("mousedown", function () {
 
             menuInstance.lightbox.visible = true;
-            menuInstance.lightbox.nsLenLoop.visible= false;
+            menuInstance.lightbox.nsLenLoop.visible = false;
 
             Helper.forceResize();
 
-            waitForReady("#selectDrop",function ()
-            {
+            waitForReady("#selectDrop", function () {
                 prepareSelect("display");
                 $("#titleInput").hide();
                 $('#countInput').hide();
@@ -1257,13 +1155,12 @@ function Settings(props)
             ///setTimeout(function () { prepareSelect("display"); },100);
             // createjs.Tween.get().wait(100).call(prepareSelect,["display"]);
 
-            menuInstance.lightbox.info.color="#000000";
+            menuInstance.lightbox.info.color = "#000000";
             menuInstance.lightbox.info.text = language.translate("Change the Timer Display!\n\nE.g: 00:01:30 as 90s");
 
 
             menuInstance.lightbox.grc_cancel.removeAllEventListeners();
-            menuInstance.lightbox.grc_cancel.addEventListener("mousedown", function (e)
-            {
+            menuInstance.lightbox.grc_cancel.addEventListener("mousedown", function (e) {
 
                 $("#selectDrop").hide();
                 $('#countInput').show();
@@ -1272,36 +1169,33 @@ function Settings(props)
 
 
             menuInstance.lightbox.grc_set.removeAllEventListeners();
-            menuInstance.lightbox.grc_set.addEventListener("mousedown", function (e)
-            {
-                $selected=$("#"+$("#selectDrop").attr("id")+" option:selected");
+            menuInstance.lightbox.grc_set.addEventListener("mousedown", function (e) {
+                $selected = $("#" + $("#selectDrop").attr("id") + " option:selected");
 
 
                 $("#selectDrop").hide();
                 $('#countInput').show();
 
                 menuInstance.lightbox.visible = false;
-                var display=$selected.text();
-                var index=parseInt($selected.val());
-                comboSelectOptions.display=display;
-                comboSelectedIndexes.display=index;
-                Helper.addUrlParameter(null,"display",display,true);
+                var display = $selected.text();
+                var index = parseInt($selected.val());
+                comboSelectOptions.display = display;
+                comboSelectedIndexes.display = index;
+                Helper.addUrlParameter(null, "display", display, true);
             });
         });
 
 
 
 
-        menuInstance.timer.btn_changesound.addEventListener("mousedown",function ()
-        {
+        menuInstance.timer.btn_changesound.addEventListener("mousedown", function () {
             menuInstance.lightbox.visible = true;
 
 
 
             $('#countInput').hide();
 
-            waitForReady("#selectDrop",function ()
-            {
+            waitForReady("#selectDrop", function () {
                 prepareSelect("sound");
                 $("#titleInput").hide();
                 $("#selectDrop").show();
@@ -1312,24 +1206,21 @@ function Settings(props)
 
 
 
-            menuInstance.lightbox.info.color="#000000";
+            menuInstance.lightbox.info.color = "#000000";
             menuInstance.lightbox.info.text = language.translate("\n\nChange the Alarm Sound! :-)");
 
 
-            if (menuInstance.lightbox.nsLenLoop)
-            {
+            if (menuInstance.lightbox.nsLenLoop) {
                 menuInstance.lightbox.nsLenLoop.visible = true;
                 menuInstance.lightbox.nsLenLoop.removeAllEventListeners();
-                menuInstance.lightbox.nsLenLoop.addEventListener("mousedown", function(e)
-                {
-                    var frameToGo=(menuInstance.lightbox.nsLenLoop.currentFrame===0)?1:0;
+                menuInstance.lightbox.nsLenLoop.addEventListener("mousedown", function (e) {
+                    var frameToGo = (menuInstance.lightbox.nsLenLoop.currentFrame === 0) ? 1 : 0;
                     menuInstance.lightbox.nsLenLoop.gotoAndStop(frameToGo);
                 });
             }
 
 
-            if (menuInstance.lightbox.previewSound)
-            {
+            if (menuInstance.lightbox.previewSound) {
                 menuInstance.lightbox.previewSound.visible = true;
                 menuInstance.lightbox.previewSound.gotoAndStop(0);
                 menuInstance.lightbox.previewSound.removeAllEventListeners();
@@ -1337,21 +1228,18 @@ function Settings(props)
             }
 
             menuInstance.lightbox.grc_cancel.removeAllEventListeners();
-            menuInstance.lightbox.grc_cancel.addEventListener("mousedown", function (e)
-            {
+            menuInstance.lightbox.grc_cancel.addEventListener("mousedown", function (e) {
 
 
                 $("#selectDrop").hide();
                 $('#countInput').show();
                 menuInstance.lightbox.visible = false;
-                if (menuInstance.lightbox.nsLenLoop)
-                {
+                if (menuInstance.lightbox.nsLenLoop) {
                     menuInstance.lightbox.nsLenLoop.visible = false;
                     menuInstance.lightbox.nsLenLoop.removeAllEventListeners();
                 }
 
-                if (menuInstance.lightbox.previewSound)
-                {
+                if (menuInstance.lightbox.previewSound) {
                     if (demoSound) demoSound.stop();
                     menuInstance.lightbox.previewSound.visible = false;
                     menuInstance.lightbox.previewSound.removeAllEventListeners();
@@ -1361,8 +1249,7 @@ function Settings(props)
             });
 
 
-            function demoSoundDone()
-            {
+            function demoSoundDone() {
 
                 if (demoSound) demoSound.stop();
                 menuInstance.lightbox.previewSound.gotoAndStop(0);
@@ -1370,64 +1257,58 @@ function Settings(props)
             }
 
 
-            function previewSoundCall(e)
-            {
+            function previewSoundCall(e) {
 
-                if(menuInstance.lightbox.previewSound.currentFrame===1)
-                {
+                if (menuInstance.lightbox.previewSound.currentFrame === 1) {
                     if (demoSound) demoSound.stop();
                     menuInstance.lightbox.previewSound.gotoAndStop(0);
                     return;
                 }
 
 
-                $selected=$("#"+$("#selectDrop").attr("id")+" option:selected");
-                var niceName=$selected.text();
-                if (niceName==="Mute All") return;
-                var index = sounds.findIndex(function (x) {return x.niceName === niceName;});
+                $selected = $("#" + $("#selectDrop").attr("id") + " option:selected");
+                var niceName = $selected.text();
+                if (niceName === "Mute All") return;
+                var index = sounds.findIndex(function (x) { return x.niceName === niceName; });
                 var fileName = sounds[index].fileName;
 
 
-                if(index===parseInt(comboSelectedIndexes.sfx))
-                {
+                if (index === parseInt(comboSelectedIndexes.sfx)) {
                     if (demoSound) demoSound.stop();
-                    createjs.Sound.registerSound("/sounds/"+fileName+".mp3", fileName);
-                    demoSound=createjs.Sound.play(fileName, {interrupt: createjs.Sound.INTERRUPT_ANY, loop:0});
-                    demoSound.volume=demoVolume;
+                    createjs.Sound.registerSound("/sounds/" + fileName + ".mp3", fileName);
+                    demoSound = createjs.Sound.play(fileName, { interrupt: createjs.Sound.INTERRUPT_ANY, loop: 0 });
+                    demoSound.volume = demoVolume;
 
                     demoSound.addEventListener("complete", demoSoundDone);
                     menuInstance.lightbox.previewSound.gotoAndStop(1);
 
 
                 }
-                else if(createjs.Sound.loadComplete(fileName))
-                {
+                else if (createjs.Sound.loadComplete(fileName)) {
                     if (demoSound) demoSound.stop();
-                    demoSound=createjs.Sound.play(fileName, {interrupt: createjs.Sound.INTERRUPT_ANY, loop:0});
-                    demoSound.volume=demoVolume;
+                    demoSound = createjs.Sound.play(fileName, { interrupt: createjs.Sound.INTERRUPT_ANY, loop: 0 });
+                    demoSound.volume = demoVolume;
 
                     demoSound.addEventListener("complete", demoSoundDone);
                     menuInstance.lightbox.previewSound.gotoAndStop(1);
                 }
-                else
-                {
+                else {
                     createjs.Sound.addEventListener("fileload", handleSoundLoad);
-                    createjs.Sound.registerSound("/sounds/"+fileName+".mp3", fileName);
+                    createjs.Sound.registerSound("/sounds/" + fileName + ".mp3", fileName);
                 }
 
 
             }
 
-            function handleSoundLoad(e)
-            {
+            function handleSoundLoad(e) {
 
-                $selected=$("#"+$("#selectDrop").attr("id")+" option:selected");
-                var niceName=$selected.text();
-                var index = sounds.findIndex(function (x) {return x.niceName === niceName;});
+                $selected = $("#" + $("#selectDrop").attr("id") + " option:selected");
+                var niceName = $selected.text();
+                var index = sounds.findIndex(function (x) { return x.niceName === niceName; });
                 var fileName = sounds[index].fileName;
                 if (demoSound) demoSound.stop();
-                demoSound=createjs.Sound.play(fileName, {interrupt: createjs.Sound.INTERRUPT_ANY, loop:0});
-                demoSound.volume=demoVolume;
+                demoSound = createjs.Sound.play(fileName, { interrupt: createjs.Sound.INTERRUPT_ANY, loop: 0 });
+                demoSound.volume = demoVolume;
 
                 demoSound.addEventListener("complete", demoSoundDone);
                 menuInstance.lightbox.previewSound.gotoAndStop(1);
@@ -1435,42 +1316,35 @@ function Settings(props)
 
 
             menuInstance.lightbox.grc_set.removeAllEventListeners();
-            menuInstance.lightbox.grc_set.addEventListener("mousedown", function (e)
-            {
-                $selected=$("#"+$("#selectDrop").attr("id")+" option:selected");
+            menuInstance.lightbox.grc_set.addEventListener("mousedown", function (e) {
+                $selected = $("#" + $("#selectDrop").attr("id") + " option:selected");
 
 
                 $("#selectDrop").hide();
                 $('#countInput').show();
 
                 menuInstance.lightbox.visible = false;
-                var niceName=$selected.text();
-                var index = sounds.findIndex(function (x) {return x.niceName === niceName;});
+                var niceName = $selected.text();
+                var index = sounds.findIndex(function (x) { return x.niceName === niceName; });
                 var fileName = sounds[index].fileName;
 
-                if (fileName==="mute")
-                {
+                if (fileName === "mute") {
                     soundClass.mute();
                 }
-                else
-                {
-                    nslen=0;
-                    if (menuInstance.lightbox.nsLenLoop)
-                    {
-                        nslen=(menuInstance.lightbox.nsLenLoop.currentFrame===1)?999:0;
+                else {
+                    nslen = 0;
+                    if (menuInstance.lightbox.nsLenLoop) {
+                        nslen = (menuInstance.lightbox.nsLenLoop.currentFrame === 1) ? 999 : 0;
                     }
 
-                    if (nslen===0)
-                    {
-                        Helper.removeUrlParameter("nslen",null,true);
+                    if (nslen === 0) {
+                        Helper.removeUrlParameter("nslen", null, true);
                     }
-                    else
-                    {
+                    else {
 
-                        setTimeout(function ()
-                        {
-                            Helper.addUrlParameter(null,"nslen",nslen,true);
-                        },50);
+                        setTimeout(function () {
+                            Helper.addUrlParameter(null, "nslen", nslen, true);
+                        }, 50);
 
 
 
@@ -1480,18 +1354,16 @@ function Settings(props)
                     soundClass.sfxOn();
                     soundClass.setSfxNsLen(nslen);
 
-                    createjs.Sound.registerSound({id:"sfx", src:"/sounds/"+fileName+".mp3"});
+                    createjs.Sound.registerSound({ id: "sfx", src: "/sounds/" + fileName + ".mp3" });
 
                 }
 
-                if (menuInstance.lightbox.nsLenLoop)
-                {
+                if (menuInstance.lightbox.nsLenLoop) {
                     menuInstance.lightbox.nsLenLoop.visible = false;
                     menuInstance.lightbox.nsLenLoop.removeAllEventListeners();
                 }
 
-                if (menuInstance.lightbox.previewSound)
-                {
+                if (menuInstance.lightbox.previewSound) {
 
                     if (demoSound) demoSound.stop();
 
@@ -1499,56 +1371,47 @@ function Settings(props)
                     menuInstance.lightbox.previewSound.removeAllEventListeners();
                 }
 
-                setTimeout(function ()
-                {
-                    Helper.addUrlParameter(null,"ns",fileName,true);
-                },50)
+                setTimeout(function () {
+                    Helper.addUrlParameter(null, "ns", fileName, true);
+                }, 50)
 
 
 
 
-                index=parseInt($selected.val());
-                comboSelectedIndexes.sfx=index;
+                index = parseInt($selected.val());
+                comboSelectedIndexes.sfx = index;
             });
         });
 
 
 
 
-        if (fromURL.r)
-        {
+        if (fromURL.r) {
             menuInstance.list.tab1.dispatchEvent("mousedown");
         }
-        else
-        {
+        else {
             menuInstance.list.tab0.dispatchEvent("mousedown");
         }
 
-        function switchTabs(e)
-        {
-            if(e.currentTarget.name === 'tab0')
-            {
+        function switchTabs(e) {
+            if (e.currentTarget.name === 'tab0') {
                 //Classic
                 menuInstance.list.gotoAndStop(0);
                 menuInstance.list.thumb.visible = true;
                 menuInstance.list.removeAllEventListeners();
 
                 // 1000 Character Change
-                if(exportRoot.settings.list.premiumOver)
-                {
-                    if(fromServer.type !== "free")
-                    {
+                if (exportRoot.settings.list.premiumOver) {
+                    if (fromServer.type !== "free") {
                         exportRoot.settings.list.premiumOver.visible = true;
                         exportRoot.settings.list.premiumOver.gotoAndStop(1);
                         sliderInput();
                     }
-                    else
-                    {
+                    else {
 
                         exportRoot.settings.list.premiumOver.btn.removeAllEventListeners();
-                        exportRoot.settings.list.premiumOver.btn.addEventListener("mousedown",function ()
-                        {
-                            window.open('https://www.online-stopwatch.com/premium/','_blank');
+                        exportRoot.settings.list.premiumOver.btn.addEventListener("mousedown", function () {
+                            window.open('https://www.online-stopwatch.com/premium/', '_blank');
                         });
 
                     }
@@ -1556,25 +1419,20 @@ function Settings(props)
 
 
             }
-            else
-            {
+            else {
                 // Names
                 menuInstance.list.gotoAndStop(1);
-                menuInstance.list.editList.text=language.translate(menuInstance.list.editList.text);
+                menuInstance.list.editList.text = language.translate(menuInstance.list.editList.text);
 
                 // 1000 Character Change
-                if(exportRoot.settings.list.premiumOver)
-                {
-                    if(fromServer.type !== "free")
-                    {
+                if (exportRoot.settings.list.premiumOver) {
+                    if (fromServer.type !== "free") {
                         exportRoot.settings.list.premiumOver.visible = false;
                     }
-                    else
-                    {
+                    else {
                         exportRoot.settings.list.premiumOver.btn.removeAllEventListeners();
-                        exportRoot.settings.list.premiumOver.btn.addEventListener("mousedown",function ()
-                        {
-                            window.open('https://www.online-stopwatch.com/premium/','_blank');
+                        exportRoot.settings.list.premiumOver.btn.addEventListener("mousedown", function () {
+                            window.open('https://www.online-stopwatch.com/premium/', '_blank');
                         });
 
                     }
@@ -1586,52 +1444,45 @@ function Settings(props)
                 menuInstance.list.thumb.visible = false;
 
                 menuInstance.list.btn_editList.removeAllEventListeners();
-                menuInstance.list.btn_editList.addEventListener("mousedown",function(e)
-                {
+                menuInstance.list.btn_editList.addEventListener("mousedown", function (e) {
 
-                    var tmpCurrentList =  $("#namesList").val();
+                    var tmpCurrentList = $("#namesList").val();
                     var shouldRestore = false;
 
-                    if(JSON.stringify(listCollector.restoredList)===JSON.stringify(listCollector.list))
-                    {
+                    if (JSON.stringify(listCollector.restoredList) === JSON.stringify(listCollector.list)) {
                         menuInstance.list.clearList.text = language.translate("Clear List");
                         shouldRestore = false;
                     }
-                    else
-                    {
+                    else {
                         menuInstance.list.clearList.text = language.translate("Restore List");
                         shouldRestore = true;
                     }
 
                     menuInstance.list.gotoAndStop(2);
-                    menuInstance.list.doneList.text=language.translate(menuInstance.list.doneList.text);
-                    menuInstance.list.whatsPossible.text=language.translate(menuInstance.list.whatsPossible.text);
-                    menuInstance.list.clearList.text=language.translate(menuInstance.list.clearList.text);
+                    menuInstance.list.doneList.text = language.translate(menuInstance.list.doneList.text);
+                    menuInstance.list.whatsPossible.text = language.translate(menuInstance.list.whatsPossible.text);
+                    menuInstance.list.clearList.text = language.translate(menuInstance.list.clearList.text);
 
                     $("#namesList").off();
-                    $("#namesList").on('change keyup paste', function() { showNameCount();});
+                    $("#namesList").on('change keyup paste', function () { showNameCount(); });
 
-                    waitForReady("#namesList",function ()
-                    {
+                    waitForReady("#namesList", function () {
 
-                       // $("#namesList").visible();
+                        // $("#namesList").visible();
                         $("#namesList").show();
-                        if(listCollector.list.length ===0) listCollector.list =Helper.defaultList.split(",");
+                        if (listCollector.list.length === 0) listCollector.list = Helper.defaultList.split(",");
                         $("#namesList").val(listCollector.list.join("\n"));
-                        tmpCurrentList =  $("#namesList").val();
-                        menuInstance.list.whatsPossible.text = language.translate("Enter up to ") + characterMaxNum +" "+ language.translate("Names:");
+                        tmpCurrentList = $("#namesList").val();
+                        menuInstance.list.whatsPossible.text = language.translate("Enter up to ") + characterMaxNum + " " + language.translate("Names:");
                         menuInstance.list.btn_clearList.removeAllEventListeners();
-                        menuInstance.list.btn_clearList.addEventListener("mousedown",function(e)
-                        {
+                        menuInstance.list.btn_clearList.addEventListener("mousedown", function (e) {
 
-                            if(shouldRestore)
-                            {
+                            if (shouldRestore) {
                                 $("#namesList").val(listCollector.restoredList.join("\n"));
                                 menuInstance.list.clearList.text = language.translate("Clear List");
                                 shouldRestore = false;
                             }
-                            else
-                            {
+                            else {
                                 $("#namesList").val("");
                             }
 
@@ -1640,7 +1491,7 @@ function Settings(props)
 
                         });
                         showNameCount();
-                        _this.fixDom(menuInstance.list.namesList,$("#namesList"));
+                        _this.fixDom(menuInstance.list.namesList, $("#namesList"));
                     });
 
 
@@ -1655,28 +1506,24 @@ function Settings(props)
 
 
                     menuInstance.list.btn_done.removeAllEventListeners();
-                    menuInstance.list.btn_done.addEventListener("mousedown",function(e)
-                    {
+                    menuInstance.list.btn_done.addEventListener("mousedown", function (e) {
                         Helper.filterBadWords($("#namesList"));
 
-                        listCollector.list=$("#namesList").val().split("\n");
-                        listCollector.list=listCollector.list.map(function(s) { return $.trim(s); });
+                        listCollector.list = $("#namesList").val().split("\n");
+                        listCollector.list = listCollector.list.map(function (s) { return $.trim(s); });
 
-                        listCollector.list=listCollector.list.filter(function (el)
-                        {
+                        listCollector.list = listCollector.list.filter(function (el) {
                             return $.trim(el) !== "";
                         });
 
-                        if(listCollector.list.length ===0)
-                        {
+                        if (listCollector.list.length === 0) {
 
-                            listCollector.list=Helper.defaultList.split(",");
+                            listCollector.list = Helper.defaultList.split(",");
                             $("#namesList").val(Helper.defaultList.split(",").join("\n"));
                             return;
                         }
-                        else if (listCollector.list.length === 1 )
-                        {
-                            var shuffledDefaultNames=Helper.defaultList.split(",").shuffle();
+                        else if (listCollector.list.length === 1) {
+                            var shuffledDefaultNames = Helper.defaultList.split(",").shuffle();
                             listCollector.list.push(shuffledDefaultNames[0]);
                             $("#namesList").val(listCollector.list.join("\n"));
                             return;
@@ -1684,8 +1531,7 @@ function Settings(props)
 
 
 
-                        if(tmpCurrentList !==  $("#namesList").val())
-                        {
+                        if (tmpCurrentList !== $("#namesList").val()) {
                             listCollector.restoredList = listCollector.list;
                         }
 
@@ -1708,18 +1554,15 @@ function Settings(props)
 
 
 
-        function backToTimer()
-        {
-            if (menuInstance.list.currentFrame>=1)
-            {
+        function backToTimer() {
+            if (menuInstance.list.currentFrame >= 1) {
                 menuInstance.list.gotoAndStop(1);
             }
 
             _this.hide();
 
 
-            if(timerInstance.tStart.text==="")
-            {
+            if (timerInstance.tStart.text === "") {
                 //timerInstance.bClear.dispatchEvent("mousedown");
             }
 
@@ -1733,47 +1576,42 @@ function Settings(props)
 
         }
 
-        function showNumbersChange(e)
-        {
+        function showNumbersChange(e) {
 
-            if(!menuInstance.list.tickcross.cross.visible)
-            {
+            if (!menuInstance.list.tickcross.cross.visible) {
                 menuInstance.list.tickcross.cross.visible = true;
                 menuInstance.list.tickcross.tick.visible = false;
             }
-            else
-            {
+            else {
                 menuInstance.list.tickcross.cross.visible = false;
                 menuInstance.list.tickcross.tick.visible = true;
 
             }
-            if (e) Helper.addUrlParameter(null,"bubble",menuInstance.list.tickcross.tick.visible,true);
+            if (e) Helper.addUrlParameter(null, "bubble", menuInstance.list.tickcross.tick.visible, true);
 
         }
 
-        function setTime()
-        {
+        function setTime() {
             //var timeMilliseconds=calculateMilliseconds(menuInstance.timer.oldWay.display.text);
             ///complete(timeMilliseconds);
 
 
-            createjs.Ticker.paused=false;
+            createjs.Ticker.paused = false;
 
             var event = new createjs.Event("complete");
-            event.data=calc();
+            event.data = calc();
             $('#countInput').hide();
 
 
 
 
 
-            setTimeout(function ()
-            {
+            setTimeout(function () {
                 _this.dispatchEvent(event);
                 setLightBoxDomElements("hide");
                 $('#countInput').hide();
-                menuInstance.back.visible=true;
-            },90);
+                menuInstance.back.visible = true;
+            }, 90);
 
 
 
@@ -1794,29 +1632,27 @@ function Settings(props)
 
 
 
-        function clearTime()
-        {
-            digitCount=0;
-            menuInstance.timer.oldWay.display.text="00:00:00";
+        function clearTime() {
+            digitCount = 0;
+            menuInstance.timer.oldWay.display.text = "00:00:00";
         }
 
-        function setDigit(e)
-        {
-            if (digitCount===6) return;
-            var digit=e.currentTarget.name.substr(3);
-            var timerText=menuInstance.timer.oldWay.display.text;
-            var timerDigits=timerText.replaceAll(":","");
+        function setDigit(e) {
+            if (digitCount === 6) return;
+            var digit = e.currentTarget.name.substr(3);
+            var timerText = menuInstance.timer.oldWay.display.text;
+            var timerDigits = timerText.replaceAll(":", "");
             timerDigits = timerDigits.substr(1);
-            timerDigits=timerDigits.concat(digit);
-            timerDigits=timerDigits.slice(0, 2) + ":" + timerDigits.slice(2);
-            timerDigits=timerDigits.slice(0, 5) + ":" + timerDigits.slice(5);
-            menuInstance.timer.oldWay.display.text=timerDigits;
+            timerDigits = timerDigits.concat(digit);
+            timerDigits = timerDigits.slice(0, 2) + ":" + timerDigits.slice(2);
+            timerDigits = timerDigits.slice(0, 5) + ":" + timerDigits.slice(5);
+            menuInstance.timer.oldWay.display.text = timerDigits;
             digitCount++;
         }
 
 
         createSlider();
-        if (menuInstance.list.currentFrame===0) sliderInput();
+        if (menuInstance.list.currentFrame === 0) sliderInput();
 
     };
 
@@ -1824,18 +1660,17 @@ function Settings(props)
 
 
 
-    function createSlider()
-    {
+    function createSlider() {
 
 
-        slider=new Slider(
+        slider = new Slider(
             menuInstance.list.thumb,
-            {x:initialThumbPos,y:menuInstance.list.thumb.y},
-            {x:knobMax,y:menuInstance.list.thumb.y},
-            {min:characterMinNum,max:characterMaxNum}
+            { x: initialThumbPos, y: menuInstance.list.thumb.y },
+            { x: knobMax, y: menuInstance.list.thumb.y },
+            { min: characterMinNum, max: characterMaxNum }
         );
-        slider.addEventListener("start",startSliding);
-        slider.addEventListener("finish",slidingFinished);
+        slider.addEventListener("start", startSliding);
+        slider.addEventListener("finish", slidingFinished);
         slider.enableSlider();
         slider.setCharNum(characterNum);
 
@@ -1844,89 +1679,74 @@ function Settings(props)
     }
 
 
-    function forceBubbleWithNumbers()
-    {
-        if (fromURL.bubble!=="false" && characterNum>6 && props.allowNumberBubblesOnSlider)
-        {
+    function forceBubbleWithNumbers() {
+        if (fromURL.bubble !== "false" && characterNum > 6 && props.allowNumberBubblesOnSlider) {
             menuInstance.list.tickcross.cross.visible = false;
             menuInstance.list.tickcross.tick.visible = true;
-            props.allowNumberBubblesOnSlider=false;
+            props.allowNumberBubblesOnSlider = false;
         }
     }
 
-    function startSliding()
-    {
-        if(fromServer.type==="free" && !menuInstance.list.premium0.visible && !freeMaxAllowed)
-        {
-            if (createjs.Ticker.paused)
-            {
+    function startSliding() {
+        if (fromServer.type === "free" && !menuInstance.list.premium0.visible && !freeMaxAllowed) {
+            if (createjs.Ticker.paused) {
                 menuInstance.list.premium0.visible = true;
             }
-            else
-            {
+            else {
                 menuInstance.list.premium0.alpha = 0;
                 menuInstance.list.premium0.visible = true;
-                createjs.Tween.get(menuInstance.list.premium0,{override:true}).to({alpha:1},300);
+                createjs.Tween.get(menuInstance.list.premium0, { override: true }).to({ alpha: 1 }, 300);
             }
         }
 
     }
 
 
-    function slidingFinished(e)
-    {
-        characterNum=e.data.characterNum;
+    function slidingFinished(e) {
+        characterNum = e.data.characterNum;
 
 
 
         $('#countInput').val(characterNum);
 
         forceBubbleWithNumbers();
-        Helper.addUrlParameter(null,"characters",characterNum,true);
+        Helper.addUrlParameter(null, "characters", characterNum, true);
     }
 
     /*=====================================================================================
                                         1000 Character Changes
     =====================================================================================*/
-    function sliderInput()
-    {
+    function sliderInput() {
 
-        if (fromServer.type!=="free")
-        {
+        if (fromServer.type !== "free") {
 
-            if(characterMaxNum > 100)
-            {
+            if (characterMaxNum > 100) {
 
-                waitForReady('#countInput',function()
-                {
+                waitForReady('#countInput', function () {
 
 
 
                     $('#countInput').show();
                     $('#countInput').numbersOnly('destroy');
-                    $('#countInput').numbersOnly({allowDot:false,allowDash:false,minimum:1,limit:characterMaxNum});
+                    $('#countInput').numbersOnly({ allowDot: false, allowDash: false, minimum: 1, limit: characterMaxNum });
                     $('#countInput').val(characterNum);
                     $('#countInput').off("input");
-                    $('#countInput').on("input", function()
-                    {
+                    $('#countInput').on("input", function () {
 
 
-                            var tmp = parseInt($('#countInput').val());
+                        var tmp = parseInt($('#countInput').val());
 
-                            if(isNaN(tmp))
-                            {
-                                characterNum = 2;
-                            }
-                            else if(tmp>characterMaxNum)
-                            {
-                                characterNum = characterMaxNum;
-                            }
-                            else
-                            {
-                                characterNum = tmp;
-                            }
+                        if (isNaN(tmp)) {
+                            characterNum = 2;
+                        }
+                        else if (tmp > characterMaxNum) {
+                            characterNum = characterMaxNum;
+                        }
+                        else {
+                            characterNum = tmp;
+                        }
 
-                            slider.setCharNum(characterNum);
+                        slider.setCharNum(characterNum);
 
 
 
@@ -1945,20 +1765,16 @@ function Settings(props)
     =====================================================================================*/
 
     // Instantly know when a textbox is ready to be used..
-    function waitForReady(what,callback)
-    {
+    function waitForReady(what, callback) {
 
-        var counter=0;
-        var waitForReady = setInterval(function()
-        {
+        var counter = 0;
+        var waitForReady = setInterval(function () {
             counter++;
-            if (counter===20)
-            {
+            if (counter === 20) {
                 clearInterval(waitForReady);
                 return;
             }
-            if($(what).length !== 0)
-            {
+            if ($(what).length !== 0) {
                 clearInterval(waitForReady);
                 callback();
             }
@@ -1971,16 +1787,14 @@ function Settings(props)
 
 
 // numbersOnly || - you can use allowDot to allow 4.4 or allowDash to allow -5, or both
-(function($)
-{
-    $.fn.numbersOnly = function(options)
-    {
+(function ($) {
+    $.fn.numbersOnly = function (options) {
 
         var defaults = {
             allowDot: false,
             allowDash: false,
-            minimum:false,
-            limit:false
+            minimum: false,
+            limit: false
         };
 
         options || (options = {});
@@ -1988,44 +1802,39 @@ function Settings(props)
 
 
 
-        var allowDot 	= (options.allowDot === true);
-        var allowDash 	= (options.allowDash === true);
-        var minimum		= (options.minimum === false) ? false : options.minimum;
-        var limit		= (options.limit === false) ? false : options.limit;
+        var allowDot = (options.allowDot === true);
+        var allowDash = (options.allowDash === true);
+        var minimum = (options.minimum === false) ? false : options.minimum;
+        var limit = (options.limit === false) ? false : options.limit;
         var firstChar;
 
-        this.on('keydown',function(event)
-        {
+        this.on('keydown', function (event) {
 
             var allowedKeys = [8, 9, 13, 16, 27, 37, 39, 46, 91, 144];
             var ctrlKey = (event.metaKey || event.ctrlKey);
 
 
-            if(allowDot)
-            {
+            if (allowDot) {
                 // Allow a dot - but only one!
                 var dot1 = 110;
                 var dot2 = 190;
 
-                if( $(this).val().indexOf('.') === -1 )
-                {
+                if ($(this).val().indexOf('.') === -1) {
                     allowedKeys.push(dot1);
                     allowedKeys.push(dot2);
                 }
             }
 
-            if(allowDash){
+            if (allowDash) {
                 // Allow a dash - but only one!
                 var dash1 = 109;
                 var dash2 = 189;
 
 
-                if ((event.which === dash1) || (event.which === dash2))
-                {
+                if ((event.which === dash1) || (event.which === dash2)) {
                     // User is clicking dash
                     firstChar = $(this).val().charAt(0);
-                    if(firstChar !== '-' &&  $(this).prop('selectionStart') === 0)
-                    {
+                    if (firstChar !== '-' && $(this).prop('selectionStart') === 0) {
                         allowedKeys.push(dash1);
                         allowedKeys.push(dash2);
                     }
@@ -2041,56 +1850,44 @@ function Settings(props)
             }
             firstChar = $(this).val().charAt(0);
 
-            if(event.which !== 46)
-            {
-                if((firstChar === '-' && $(this).prop('selectionStart') === 0 && $(this).prop('selectionEnd') === 0) )
-                {
+            if (event.which !== 46) {
+                if ((firstChar === '-' && $(this).prop('selectionStart') === 0 && $(this).prop('selectionEnd') === 0)) {
                     return false;
                 }
             }
 
 
             var e;
-            if(limit)
-            {
+            if (limit) {
 
-                if((event.which >= 35 && event.which <= 40) || (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105))
-                {
+                if ((event.which >= 35 && event.which <= 40) || (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105)) {
                     e = $(this);
-                    setTimeout(function()
-                    {
+                    setTimeout(function () {
 
-                        if(window.getSelection().toString() === "")
-                        {
-                            if(parseInt(e.val()) > limit)
-                            {
+                        if (window.getSelection().toString() === "") {
+                            if (parseInt(e.val()) > limit) {
                                 e.val(limit);
                                 return false;
                             }
 
                         }
-                    },10);
+                    }, 10);
                 }
             }
 
-            if(minimum)
-            {
+            if (minimum) {
 
-                if((event.which >= 35 && event.which <= 40) || (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105))
-                {
+                if ((event.which >= 35 && event.which <= 40) || (event.which >= 48 && event.which <= 57) || (event.which >= 96 && event.which <= 105)) {
 
                     e = $(this);
-                    setTimeout(function()
-                    {
-                        if(window.getSelection().toString() === "")
-                        {
-                            if(parseInt(e.val()) < minimum)
-                            {
+                    setTimeout(function () {
+                        if (window.getSelection().toString() === "") {
+                            if (parseInt(e.val()) < minimum) {
                                 e.val(minimum);
                                 return false;
                             }
                         }
-                    },10);
+                    }, 10);
                 }
             }
 
@@ -2104,19 +1901,16 @@ function Settings(props)
 
         });
 
-        this.on('paste',function(event)
-        {
+        this.on('paste', function (event) {
 
             var e = $(this);
-            setTimeout(function()
-            {
+            setTimeout(function () {
                 e.val(e.val().replace(/\D/g, ''));
-            },10);
+            }, 10);
 
         });
 
-        if (options === 'destroy')
-        {
+        if (options === 'destroy') {
             this.unbind('keydown paste');
         }
 

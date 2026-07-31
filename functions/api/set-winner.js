@@ -6,16 +6,14 @@ export async function onRequestPost(context) {
         winnerOrder: body.winnerOrder.map(n => parseInt(n)),
         updatedAt: new Date().toISOString()
       };
-      try {
-        if (context && context.env && context.env.GAME_KV && typeof context.env.GAME_KV.put === 'function') {
-          await context.env.GAME_KV.put('activeGameConfig', JSON.stringify(config));
-        }
-      } catch (kvErr) {}
+      if (context.env && context.env.GAME_KV) {
+        await context.env.GAME_KV.put('activeGameConfig', JSON.stringify(config));
+      }
       return new Response(JSON.stringify({ success: true, config }), {
         headers: { 'Content-Type': 'application/json' }
       });
     }
-  } catch (e) {}
+  } catch (e) { }
 
   return new Response(JSON.stringify({ error: 'Payload không hợp lệ' }), {
     status: 400,
