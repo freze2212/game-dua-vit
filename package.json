@@ -1,0 +1,18 @@
+{
+  "name": "duck-race-capture",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Duck race asset capture, custom API control, and result verification",
+  "main": "preview-server.js",
+  "scripts": {
+    "serve": "node preview-server.js",
+    "test": "node test-game-verification.js",
+    "test:gui": "node test-game-verification.js --gui",
+    "test:api": "node test-custom-api.js",
+    "test:api:gui": "node test-custom-api.js --gui",
+    "capture": "node capture-assets.js"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}

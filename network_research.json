@@ -1,0 +1,776 @@
+{
+  "info": {
+    "canvases": [],
+    "scripts": [
+      "https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202607210101/pubads_impl_page_level_ads.js",
+      "https://btloader.com/tag?o=5708166709903360&upapi=true",
+      "https://cdn.confiant-integrations.net/gptprebidnative/202607241525/wrap.js",
+      "https://cdn.fuseplatform.net/prebid/IIQUniversalID.js",
+      "https://cdn.confiant-integrations.net/FsQ5YuvfGPQCS4yK3mO27u5K5w0/gpt_and_prebid/config.js",
+      "https://7odcs2a8nxtfyxndn.ay.delivery/s2s-client-v1.js",
+      "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+      "https://c.amazon-adsystem.com/aax2/apstag.js",
+      "https://cdn.fuseplatform.net/prebid/prebid-9.53.5-6f6238a61159da463e0f84e3c0179a80df4e80f3ecbf2a5aebca01e8829bdabf.js",
+      "https://spellknight.com/build/q6qph76_5zueg.module.js",
+      "https://www.googletagmanager.com/gtag/js?id=G-MPJ3NLQYPR",
+      "https://cdn.fuseplatform.net/publift/tags/2/3331/fuse.js",
+      "https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202607210101/pubads_impl.js",
+      "https://config.aps.amazon-adsystem.com/configs/8b48e249-e9e6-4a52-8b48-396ea93403e8",
+      "https://fundingchoicesmessages.google.com/i/71161633?ers=3",
+      "https://cdn.id5-sync.com/api/1.0/id5-api.js",
+      "https://secure.cdn.fastclick.net/js/pubcid/latest/pubcid.min.js",
+      "https://fundingchoicesmessages.google.com/f/AGSKWxXjOtfErhNoeXga8Rjtr2ZPpV-hCrOJI0y64D6fJ2AHX-m67FEB_Ne82PE2ov6UELkGEqXMpzBgeqKnwpxKm_p5qA8Jg84o56AfSkwZMRTVDd5PS3KLHSDCVttQ_G5PMwXZbJMDlw==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzg1MTYwMDc4LDc5MTAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzddXSwiaHR0cHM6Ly93d3cub25saW5lLXN0b3B3YXRjaC5jb20vZHVjay1yYWNlL2Z1bGwtc2NyZWVuLyIsbnVsbCxbWzgsIkliNjVCYVQ4QjZRIl0sWzksImVuLVVTIl0sWzE4LCJbW1tudWxsLDE5OTNdXV0iXSxbMzUsIjE3ODUxNjAwNzgiXSxbMTksIjIiXSxbMTcsIlswXSJdLFsyNCwiIl0sWzI5LCJmYWxzZSJdXV0",
+      "https://tags.crwdcntrl.net/lt/c/16589/sync.min.js",
+      "https://fundingchoicesmessages.google.com/f/AGSKWxU0IXUOAXcqrwG2p4rGKvEg_h8Bt4iPdXWx8m5Fltssf-jjDny9cqmK1R6o-UMk5yNYOHGfuloJ5LPl4zT2xPnMd1HnWdNkHVk7eNCJ-tw7rMnxMHAbENPMbaTDEekMYwFzxCFhwA==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzg1MTYwMDc5LDI3ODAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOV0sbnVsbCwyLG51bGwsImVuIl0sImh0dHBzOi8vd3d3Lm9ubGluZS1zdG9wd2F0Y2guY29tL2R1Y2stcmFjZS9mdWxsLXNjcmVlbi8iLG51bGwsW1s4LCJJYjY1QmFUOEI2USJdLFs5LCJlbi1VUyJdLFsxOCwiW1tbbnVsbCwxOTkzXV1dIl0sWzM1LCIxNzg1MTYwMDc4Il0sWzE5LCIyIl0sWzE3LCJbMF0iXSxbMjQsIiJdLFsyOSwiZmFsc2UiXV1d",
+      "https://fundingchoicesmessages.google.com/f/AGSKWxV5FWjbtUptDg6PfIYG-YQshD3agowvMKh5hSBfJ8byh4394TEqx1gMJr9lq69iWLuqMhZkuAAt06k8PxLJJTsPFfD3uzp8iLoMqmtd2T6wDDBS5ntOFfNALXYTI09NgxQBFbprkg==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzg1MTYwMDgxLDMzOTAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOSw2XSxudWxsLDIsbnVsbCwiZW4iLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCwxXSwiaHR0cHM6Ly93d3cub25saW5lLXN0b3B3YXRjaC5jb20vZHVjay1yYWNlL2Z1bGwtc2NyZWVuLyIsbnVsbCxbWzgsIkliNjVCYVQ4QjZRIl0sWzksImVuLVVTIl0sWzE4LCJbW1tudWxsLDE5OTNdXV0iXSxbMzUsIjE3ODUxNjAwNzgiXSxbMTksIjIiXSxbMTcsIlswXSJdLFsyNCwiIl0sWzI5LCJmYWxzZSJdXV0"
+    ],
+    "iframes": [
+      "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/?v=160726133827",
+      "about:blank",
+      "",
+      "",
+      "",
+      "about:blank",
+      "about:blank",
+      "about:blank",
+      "",
+      "https://s.amazon-adsystem.com/iu3?cm3ppd=1&d=dtb-pub&csif=t&gdpr=0&dl=n-acuityads_n-Ogury_n-index_n-smadex_n-smaato_ox-db5_n-vmg_r1u_pm-db5_n-start_n-nativo_an-db5_ss_n-ConnectAdv2_pm-db5_pm-db5_kg_n-adobe3pb_ym_n-Azerion_3lift_n-Beeswax_n-LoopMe_smrt_n-rtbhouse_n-Outbrain_n-onetag_yj_n-MediaNet_n-inmobi_n-sharethrough",
+      "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0",
+      "https://ca4df5b1c180444accdad41845be1b66.safeframe.googlesyndication.com/safeframe/1-0-45/html/container.html",
+      "https://usync.ingage.tech/?gdpr=0&gdpr_consent=&us_privacy=&redirect=https%3A%2F%2Fpbs-publift-us.ay.delivery%2Fsetuid%3Fbidder%3Dinsticator%26gdpr%3D0%26gdpr_consent%3D%26gpp%3D%26gpp_sid%3D%26f%3Db%26uid%3D%24UID",
+      "https://ms-cookie-sync.presage.io/user-sync.html?gdpr=0&gdpr_consent=&us_privacy=&redirect=https%3A%2F%2Fpbs-publift-us.ay.delivery%2Fsetuid%3Fbidder%3Dogury%26gdpr%3D0%26gdpr_consent%3D%26gpp%3D%26gpp_sid%3D%26f%3Db%26uid%3D%7B%7BOGURY_UID%7D%7D&gpp=&gpp_sid=&source=prebids2s"
+    ],
+    "globals": [
+      "onappinstalled",
+      "ongamepadconnected",
+      "ongamepaddisconnected"
+    ]
+  },
+  "assetUrls": [
+    {
+      "url": "https://www.online-stopwatch.com/duck-race/full-screen/?countdown=00:01:07&characterStyle=0",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/?v=160726133827",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/language.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/timermenu.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/server.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/slider.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/keyboard.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/js/timerfix.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/css/racetimer.css",
+      "status": 200,
+      "contentType": "text/css"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/newrace.css?v=070626184009",
+      "status": 200,
+      "contentType": "text/css"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/listwinners.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/cache.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/js/WorkerTimers.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/js/prototypes.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/sound.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/userlogo.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/snippets.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/js/jquery.blockUI.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/js/main.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/helpers.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/settings.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/js/createjs.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/js/index.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://cdn.fuseplatform.net/publift/tags/2/3331/fuse.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-MPJ3NLQYPR",
+      "status": 200,
+      "contentType": "application/javascript; charset=UTF-8"
+    },
+    {
+      "url": "blob:https://www.online-stopwatch.com/45f58bc3-f293-451b-bb4e-036a917b8c60",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/images/stopwatch-logo-loader.svg",
+      "status": 200,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "url": "https://cdn.fuseplatform.net/prebid/IIQUniversalID.js",
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    {
+      "url": "https://cdn.fuseplatform.net/telemetry/noconsent?v=1&ttm=1785160077149&cookie=true&res=1280x720&device=desktop&browser=chrome&fuuid=1c248995-2b4e-531e-9d0d-94ec04eb494f&fid=3331&pubid=12&url=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&sid=157021062e93ba056601&srate=100&adserver=gpt&etm=899&e=fuse-load&tenant=publift&fusecdn=cloudflare&tlt=837&account=onlinestopwatch&experiments=%7B%22fuse_exp_0%22%3A%22false%22%2C%22fuse_exp_2%22%3A%22false%22%2C%22fuse_exp_3%22%3A%22false%22%2C%22fuse_exp_5%22%3A%22false%22%2C%22fuse_exp_6%22%3A%22false%22%2C%22fuse_exp_7%22%3A%22false%22%2C%22fuse_exp_9%22%3A%22false%22%2C%22fuse_exp_10%22%3A%22false%22%2C%22fuse_exp_13%22%3A%22false%22%2C%22fuse_exp_14%22%3A%22false%22%2C%22fuse_exp_15%22%3A%22true%22%2C%22fuse_exp_16%22%3A%22false%22%2C%22fuse_exp_20%22%3A%22ineligible%22%2C%22fuse_exp_21%22%3A%22false%22%2C%22fuse_exp_22%22%3A%22false%22%2C%22fuse_exp_27%22%3A%22false%22%2C%22fuse_exp_30%22%3A%22true%22%2C%22fuse_exp_35%22%3A%22false%22%2C%22fuse_exp_36%22%3A%22false%22%2C%22fuse_exp_37%22%3A%22false%22%2C%22fuse_exp_38%22%3A%22false%22%2C%22fuse_exp_39%22%3A%22false%22%2C%22fuse_exp_40%22%3A%22false%22%2C%22fuse_exp_41%22%3A%22false%22%2C%22fuse_exp_43%22%3A%22false%22%7D&geo_country=SG&geo_code=APAC&bs=14",
+      "status": 200,
+      "contentType": "application/octet-stream"
+    },
+    {
+      "url": "https://cdn.fuseplatform.net/prebid/prebid-9.53.5-6f6238a61159da463e0f84e3c0179a80df4e80f3ecbf2a5aebca01e8829bdabf.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/js/pchk.php",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://7odcs2a8nxtfyxndn.ay.delivery/s2s-client-v1.js",
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-MPJ3NLQYPR&gtm=45je67m0v893973031za200zd893973031&_p=1785160076545&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=62490019.1785160077&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=1280x720&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938469~118897920~118897930~119896802&sid=1785160077&sct=1&seg=0&dl=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&dt=Online%20Duck%20Race%20Game&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1041",
+      "status": 204,
+      "contentType": "text/plain"
+    },
+    {
+      "url": "https://cdn.confiant-integrations.net/FsQ5YuvfGPQCS4yK3mO27u5K5w0/gpt_and_prebid/config.js",
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    {
+      "url": "https://spellknight.com/build/q6qph76_5zueg.module.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/components/sdk/anwidget.js?v=070626184009",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://c.amazon-adsystem.com/aax2/apstag.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/components/ui/src/textinput.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://sync.intentiq.com/profiles_engine/ProfilesEngineServlet?at=20&mi=10&secure=1&dpi=768420746&iiqidtype=2&iiqpcid=fd2f11fe-206a-01f1-e9f8-1afbe0ae8f6b&iiqpciddate=1785160077362&tsrnd=450_1785160077377&jsver=6.253&testPercentage=95&testGroup=A&uh=%7B%220%22%3A%22%5C%22Not%3DA%3FBrand%5C%22%3Bv%3D%5C%2299%5C%22%2C%20%5C%22HeadlessChrome%5C%22%3Bv%3D%5C%22151%5C%22%2C%20%5C%22Chromium%5C%22%3Bv%3D%5C%22151%5C%22%22%2C%221%22%3A%22%3F0%22%2C%222%22%3A%22%5C%22Windows%5C%22%22%2C%223%22%3A%22%5C%22x86%5C%22%22%2C%224%22%3A%22%5C%2264%5C%22%22%2C%226%22%3A%22%5C%2210.0%5C%22%22%2C%227%22%3A%22%3F0%22%2C%228%22%3A%22%5C%22Not%3DA%3FBrand%5C%22%3Bv%3D%5C%2299.0.0.0%5C%22%2C%20%5C%22HeadlessChrome%5C%22%3Bv%3D%5C%22151.0.7922.34%5C%22%2C%20%5C%22Chromium%5C%22%3Bv%3D%5C%22151.0.7922.34%5C%22%22%7D&vrref=https%3A%2F%2Fwww.online-stopwatch.com&gdpr_consent=undefined&gpc=undefined&gdpr=0",
+      "status": 302,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://api.intentiq.com/profiles_engine/ProfilesEngineServlet?at=46&mi=10&dpi=768420746&pt=17&dpn=1&jsver=6.253&iiqidtype=2&iiqpcid=fd2f11fe-206a-01f1-e9f8-1afbe0ae8f6b&iiqpciddate=1785160077362&jaesc=0&jafc=0&jaensc=0&iiqlocalstorageenabled=true&tsrnd=246_1785160077375&cttl=0&gdpr_consent=undefined&gdpr=0&requestRtt=0&lastDataUpdateDate=0&testGroup=A&japbjs=true&japs=false&vrref=https%3A%2F%2Fwww.online-stopwatch.com",
+      "status": 200,
+      "contentType": "text/html"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/prebid/currency-file@1/latest.json?date=20260727",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/components/ui/src/textarea.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://sync.intentiq.com/profiles_engine/ProfilesEngineServlet?at=20&mi=10&secure=1&dpi=768420746&iiqidtype=2&iiqpcid=fd2f11fe-206a-01f1-e9f8-1afbe0ae8f6b&iiqpciddate=1785160077362&tsrnd=450_1785160077377&jsver=6.253&testPercentage=95&testGroup=A&uh=%7B%220%22%3A%22%5C%22Not%3DA%3FBrand%5C%22%3Bv%3D%5C%2299%5C%22%2C%20%5C%22HeadlessChrome%5C%22%3Bv%3D%5C%22151%5C%22%2C%20%5C%22Chromium%5C%22%3Bv%3D%5C%22151%5C%22%22%2C%221%22%3A%22%3F0%22%2C%222%22%3A%22%5C%22Windows%5C%22%22%2C%223%22%3A%22%5C%22x86%5C%22%22%2C%224%22%3A%22%5C%2264%5C%22%22%2C%226%22%3A%22%5C%2210.0%5C%22%22%2C%227%22%3A%22%3F0%22%2C%228%22%3A%22%5C%22Not%3DA%3FBrand%5C%22%3Bv%3D%5C%2299.0.0.0%5C%22%2C%20%5C%22HeadlessChrome%5C%22%3Bv%3D%5C%22151.0.7922.34%5C%22%2C%20%5C%22Chromium%5C%22%3Bv%3D%5C%22151.0.7922.34%5C%22%22%7D&vrref=https%3A%2F%2Fwww.online-stopwatch.com&gdpr_consent=&gpc=undefined&gdpr=&ckls=true&ci=hafbMLlYIA&nc=false&trid=-2012050602",
+      "status": 302,
+      "contentType": ""
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202607210101/pubads_impl.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://sync.intentiq.com/profiles_engine/ProfilesEngineServlet?at=20&mi=10&secure=1&dpi=768420746&iiqidtype=2&iiqpcid=fd2f11fe-206a-01f1-e9f8-1afbe0ae8f6b&iiqpciddate=1785160077362&tsrnd=786_1785160077925&jsver=6.253&testPercentage=95&testGroup=A&uh=%7B%220%22%3A%22%5C%22Not%3DA%3FBrand%5C%22%3Bv%3D%5C%2299%5C%22%2C%20%5C%22HeadlessChrome%5C%22%3Bv%3D%5C%22151%5C%22%2C%20%5C%22Chromium%5C%22%3Bv%3D%5C%22151%5C%22%22%2C%221%22%3A%22%3F0%22%2C%222%22%3A%22%5C%22Windows%5C%22%22%2C%223%22%3A%22%5C%22x86%5C%22%22%2C%224%22%3A%22%5C%2264%5C%22%22%2C%226%22%3A%22%5C%2210.0%5C%22%22%2C%227%22%3A%22%3F0%22%2C%228%22%3A%22%5C%22Not%3DA%3FBrand%5C%22%3Bv%3D%5C%2299.0.0.0%5C%22%2C%20%5C%22HeadlessChrome%5C%22%3Bv%3D%5C%22151.0.7922.34%5C%22%2C%20%5C%22Chromium%5C%22%3Bv%3D%5C%22151.0.7922.34%5C%22%22%7D&vrref=https%3A%2F%2Fwww.online-stopwatch.com&gdpr_consent=undefined&gpc=undefined&gdpr=0",
+      "status": 200,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://cdn.confiant-integrations.net/gptprebidnative/202607241525/wrap.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/components/ui/src/div.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://c.amazon-adsystem.com/bao-csm/aps-comm/aps_csm.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://aax.amazon-adsystem.com/e/dtb/bid/657514.3/0/prebid?adunitid=isqdf_300x250_7031203",
+      "status": 200,
+      "contentType": "text/javascript;charset=UTF-8"
+    },
+    {
+      "url": "https://sync-apac-v4.intentiq.com/profiles_engine/ProfilesEngineServlet?at=20&mi=10&secure=1&dpi=768420746&iiqidtype=2&iiqpcid=fd2f11fe-206a-01f1-e9f8-1afbe0ae8f6b&iiqpciddate=1785160077362&tsrnd=450_1785160077377&jsver=6.253&testPercentage=95&testGroup=A&uh=%7B%220%22%3A%22%5C%22Not%3DA%3FBrand%5C%22%3Bv%3D%5C%2299%5C%22%2C%20%5C%22HeadlessChrome%5C%22%3Bv%3D%5C%22151%5C%22%2C%20%5C%22Chromium%5C%22%3Bv%3D%5C%22151%5C%22%22%2C%221%22%3A%22%3F0%22%2C%222%22%3A%22%5C%22Windows%5C%22%22%2C%223%22%3A%22%5C%22x86%5C%22%22%2C%224%22%3A%22%5C%2264%5C%22%22%2C%226%22%3A%22%5C%2210.0%5C%22%22%2C%227%22%3A%22%3F0%22%2C%228%22%3A%22%5C%22Not%3DA%3FBrand%5C%22%3Bv%3D%5C%2299.0.0.0%5C%22%2C%20%5C%22HeadlessChrome%5C%22%3Bv%3D%5C%22151.0.7922.34%5C%22%2C%20%5C%22Chromium%5C%22%3Bv%3D%5C%22151.0.7922.34%5C%22%22%7D&vrref=https%3A%2F%2Fwww.online-stopwatch.com&gdpr_consent=&gpc=undefined&gdpr=&ckls=true&ci=hafbMLlYIA&nc=false&trid=-2012050602&ripv6=2402:a7c0:3003:113:1c00:4aff:fe00:b13",
+      "status": 200,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/components/ui/src/combobox.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://config.aps.amazon-adsystem.com/configs/8b48e249-e9e6-4a52-8b48-396ea93403e8",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "blob:https://www.online-stopwatch.com/33e5aabe-8f50-43b2-b09f-c863383fa671",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://fundingchoicesmessages.google.com/i/71161633?ers=3",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/sounds/sounds.json",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://spellknight.com/i9pxowy7/oil2evnpgsj05uvq",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://cm.g.doubleclick.net/partnerpixels?gdpr=0&url=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://fundingchoicesmessages.google.com/f/AGSKWxXjOtfErhNoeXga8Rjtr2ZPpV-hCrOJI0y64D6fJ2AHX-m67FEB_Ne82PE2ov6UELkGEqXMpzBgeqKnwpxKm_p5qA8Jg84o56AfSkwZMRTVDd5PS3KLHSDCVttQ_G5PMwXZbJMDlw==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzg1MTYwMDc4LDc5MTAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzddXSwiaHR0cHM6Ly93d3cub25saW5lLXN0b3B3YXRjaC5jb20vZHVjay1yYWNlL2Z1bGwtc2NyZWVuLyIsbnVsbCxbWzgsIkliNjVCYVQ4QjZRIl0sWzksImVuLVVTIl0sWzE4LCJbW1tudWxsLDE5OTNdXV0iXSxbMzUsIjE3ODUxNjAwNzgiXSxbMTksIjIiXSxbMTcsIlswXSJdLFsyNCwiIl0sWzI5LCJmYWxzZSJdXV0",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "url": "https://cdn.id5-sync.com/api/1.0/id5-api.js",
+      "status": 200,
+      "contentType": "text/javascript;charset=utf-8"
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202607210101/pubads_impl_page_level_ads.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://btloader.com/tag?o=5708166709903360&upapi=true",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/sounds/cheer.mp3",
+      "status": 200,
+      "contentType": "audio/mpeg"
+    },
+    {
+      "url": "https://secure.cdn.fastclick.net/js/pubcid/latest/pubcid.min.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://tags.crwdcntrl.net/lt/c/16589/sync.min.js",
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=191740084144093&correlator=3942393733792615&eid=31099591&output=ldjh&gdfp_req=1&vrg=202607210101&ptt=17&impl=fifs&gdpr=0&iu_parts=71161633%3A1026194%2COLCALC_onlinestopwatch%2Cweb_interstitial&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=1x1&ifi=1&didk=2990166733&dids=gpt_unit_%2F71161633%2C1026194%2FOLC&sfv=1-0-45&ists=1&fas=8&fsapi=1&eri=1&sc=1&cookie_enabled=1&abxe=1&dt=1785160078838&lmt=1785160032&adxs=-9&adys=-9&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=-1&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&u_tz=420&dmc=16&bc=31&nvt=1&uach=WyJXaW5kb3dzIiwiMTAuMCIsIng4NiIsIiIsIjE1MS4wLjc5MjIuMzQiLG51bGwsMCxudWxsLCI2NCIsW1siTm90PUE_QnJhbmQiLCI5OS4wLjAuMCJdLFsiSGVhZGxlc3NDaHJvbWUiLCIxNTEuMC43OTIyLjM0Il0sWyJDaHJvbWl1bSIsIjE1MS4wLjc5MjIuMzQiXV0sMF0.&url=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&vis=1&psz=0x-1&msz=0x-1&fws=2&ohw=0&a3p=EjQKCnB1YmNpZC5vcmcSJGY1NmNiNmM3LWRlYjEtNDUyMy1hMGNmLTJiMjFhZGVkOGJlOVgBEhwKDWNyd2RjbnRybC5uZXQY3qvUnvozSABSAghk&dlt=1785160076534&idt=1523&cust_params=fuse_site%3Dwww.online-stopwatch.com%26fuse_path%3D%252Fduck-race%252Ffull-screen%252F%26fuse_query%3D%253Fcountdown%253D00%253A01%253A07%2526characterStyle%253D0%26fuse_category%3Dduck-race%252Cfull-screen%26fuse_industry%3DIAB19%26testmode%3Dfalse%26inskin_yes%3Dtrue%26fuse_uuid%3D1c248995-2b4e-531e-9d0d-94ec04eb494f%26fuse_publication_id%3D12%26fuse_flavour%3Dcf-default%26fuse_cdn%3Dcloudflare%26fuse_revision%3Dv6%26fuse_geo_country%3DSG%26fuse_geo_state%3D%26fuse_geo_code%3DAPAC%26fuse_optable%3Dfalse%26fuse_gamsf%3Dfalse%26GPT_READY_MS%3D1500-1999%26PREBID_READY_MS%3D1000-1499%26UAM_READY_MS%3D1500-1999%26CMP_DETERMINED_MS%3Dnot_ready%26CMP_GDPR_CACHED%3Dfalse%26CMP_USP_CACHED%3Dfalse%26FUSE_LOADED_MS%3D500-999%26fuse_bs%3D14%26fuse_bs_bucket%3DLA%26CMP_JURISDICTION%3Dunknown%26CMP_ALLOW_PERSONAL%3Dfalse%26fuse_exp_0%3Dfalse%26fuse_exp_2%3Dfalse%26fuse_exp_3%3Dfalse%26fuse_exp_5%3Dfalse%26fuse_exp_6%3Dfalse%26fuse_exp_7%3Dfalse%26fuse_exp_9%3Dfalse%26fuse_exp_10%3Dfalse%26fuse_exp_13%3Dfalse%26fuse_exp_14%3Dfalse%26fuse_exp_15%3Dtrue%26fuse_exp_16%3Dfalse%26fuse_exp_20%3Dineligible%26fuse_exp_21%3Dfalse%26fuse_exp_22%3Dfalse%26fuse_exp_27%3Dfalse%26fuse_exp_30%3Dtrue%26fuse_exp_35%3Dfalse%26fuse_exp_36%3Dfalse%26fuse_exp_37%3Dfalse%26fuse_exp_38%3Dfalse%26fuse_exp_39%3Dfalse%26fuse_exp_40%3Dfalse%26fuse_exp_41%3Dfalse%26fuse_exp_43%3Dfalse%26chrome_label%3Dstandard&adks=2090699493&frm=20&eoidce=1&pbbce=1",
+      "status": 200,
+      "contentType": "text/plain; charset=UTF-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/sounds/airhorn.mp3",
+      "status": 200,
+      "contentType": "audio/mpeg"
+    },
+    {
+      "url": "https://fundingchoicesmessages.google.com/f/AGSKWxU0IXUOAXcqrwG2p4rGKvEg_h8Bt4iPdXWx8m5Fltssf-jjDny9cqmK1R6o-UMk5yNYOHGfuloJ5LPl4zT2xPnMd1HnWdNkHVk7eNCJ-tw7rMnxMHAbENPMbaTDEekMYwFzxCFhwA==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzg1MTYwMDc5LDI3ODAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOV0sbnVsbCwyLG51bGwsImVuIl0sImh0dHBzOi8vd3d3Lm9ubGluZS1zdG9wd2F0Y2guY29tL2R1Y2stcmFjZS9mdWxsLXNjcmVlbi8iLG51bGwsW1s4LCJJYjY1QmFUOEI2USJdLFs5LCJlbi1VUyJdLFsxOCwiW1tbbnVsbCwxOTkzXV1dIl0sWzM1LCIxNzg1MTYwMDc4Il0sWzE5LCIyIl0sWzE3LCJbMF0iXSxbMjQsIiJdLFsyOSwiZmFsc2UiXV1d",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "url": "https://spellknight.com/i9pxowy7/oil2evnpgsj05uvq",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://direct.adsrvr.org/bid/bidder/publift",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=11504&site_id=511204&zone_id=3064264&size_id=8&gdpr=0&rp_schain=1.0,1!publift.com,01H80BKVK6X0CA7VTRAM8AQHYS,1,,,&eid_pubcid.org=f56cb6c7-deb1-4523-a0cf-2b21aded8be9%5E1%5E%5E%5E%5E%5E&rf=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&kw=DuckGame%2CRubberDuckGame%2CDuckRace%2CRubberDuckRace%2COnlineDuckRace%2COnlineRubberDuckRace&tg_i.domain=online-stopwatch.com&tg_i.page=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&tg_i.documentLang=en&tg_i.pbadslot=%2F71161633%2C1026194%2FOLCALC_onlinestopwatch%2Ffullscreen_vrec_2%23single-1&tk_flint=pbjs_lite_v9.53.5&x_source.tid=c5e431de-6926-438d-86b9-529c65040dce&l_pb_bid_id=58d20ed7569895d8&p_screen_res=1280x720&rp_secure=1&x_imp.ext.tid=2cd3acfe-1bae-4d25-ba41-815b23d94ea9&p_gpid=%2F71161633%2C1026194%2FOLCALC_onlinestopwatch%2Ffullscreen_vrec_2%23single-1&m_ch_ua=%22Not%3DA%3FBrand%22%7Cv%3D%2299%22%2C%22HeadlessChrome%22%7Cv%3D%22151%22%2C%22Chromium%22%7Cv%3D%22151%22&m_ch_mobile=%3F0&m_ch_platform=Windows&slots=1&rand=0.4417372668368309",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=11504&site_id=511204&zone_id=3064264&size_id=2&alt_size_ids=55&gdpr=0&rp_schain=1.0,1!publift.com,01H80BKVK6X0CA7VTRAM8AQHYS,1,,,&eid_pubcid.org=f56cb6c7-deb1-4523-a0cf-2b21aded8be9%5E1%5E%5E%5E%5E%5E&rf=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&kw=DuckGame%2CRubberDuckGame%2CDuckRace%2CRubberDuckRace%2COnlineDuckRace%2COnlineRubberDuckRace&tg_i.domain=online-stopwatch.com&tg_i.page=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&tg_i.documentLang=en&tg_i.pbadslot=%2F71161633%2C1026194%2FOLCALC_onlinestopwatch%2Ffullscreen_header%23single-1&tk_flint=pbjs_lite_v9.53.5&x_source.tid=c5e431de-6926-438d-86b9-529c65040dce&l_pb_bid_id=590b97095395f8e8&p_screen_res=1280x720&rp_secure=1&x_imp.ext.tid=afc3142c-59ed-44da-a33d-9aedc6677563&p_gpid=%2F71161633%2C1026194%2FOLCALC_onlinestopwatch%2Ffullscreen_header%23single-1&m_ch_ua=%22Not%3DA%3FBrand%22%7Cv%3D%2299%22%2C%22HeadlessChrome%22%7Cv%3D%22151%22%2C%22Chromium%22%7Cv%3D%22151%22&m_ch_mobile=%3F0&m_ch_platform=Windows&slots=1&rand=0.1265748400374318",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://prebid.a-mo.net/a/c",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://s.seedtag.com/c/hb/bid",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=11504&site_id=511204&zone_id=3064264&size_id=8&gdpr=0&rp_schain=1.0,1!publift.com,01H80BKVK6X0CA7VTRAM8AQHYS,1,,,&eid_pubcid.org=f56cb6c7-deb1-4523-a0cf-2b21aded8be9%5E1%5E%5E%5E%5E%5E&rf=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&kw=DuckGame%2CRubberDuckGame%2CDuckRace%2CRubberDuckRace%2COnlineDuckRace%2COnlineRubberDuckRace&tg_i.domain=online-stopwatch.com&tg_i.page=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&tg_i.documentLang=en&tg_i.pbadslot=%2F71161633%2C1026194%2FOLCALC_onlinestopwatch%2Ffullscreen_vrec_1%23single-1&tk_flint=pbjs_lite_v9.53.5&x_source.tid=c5e431de-6926-438d-86b9-529c65040dce&l_pb_bid_id=57fd433c49a8fe68&p_screen_res=1280x720&rp_secure=1&x_imp.ext.tid=8fb488af-f282-491e-ab07-c06fea7a6e3f&p_gpid=%2F71161633%2C1026194%2FOLCALC_onlinestopwatch%2Ffullscreen_vrec_1%23single-1&m_ch_ua=%22Not%3DA%3FBrand%22%7Cv%3D%2299%22%2C%22HeadlessChrome%22%7Cv%3D%22151%22%2C%22Chromium%22%7Cv%3D%22151%22&m_ch_mobile=%3F0&m_ch_platform=Windows&slots=1&rand=0.035844716944043564",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://g2.gumgum.com/hbid/imp?displaymanager=Prebid.js%20-%20gumgum&displaymanagerver=9.53.5&lt=1785160079204&to=-420&aun=fuse-slot-22996910638-1&pubcid=f56cb6c7-deb1-4523-a0cf-2b21aded8be9&gpid=%2F71161633%2C1026194%2FOLCALC_onlinestopwatch%2Ffullscreen_header%23single-1&t=nprvo9yd&pi=3&maxw=970&maxh=90&si=1036973&bf=728x90%2C970x90&gdprApplies=0&schain=1.0%2C1!publift.com%2C01H80BKVK6X0CA7VTRAM8AQHYS%2C1%2C%2C%2C&tId=afc3142c-59ed-44da-a33d-9aedc6677563&vw=1280&vh=720&sw=1280&sh=720&pu=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&tpl=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&ce=true&dpr=1&jcsi=%7B%22t%22%3A0%2C%22rq%22%3A8%2C%22pbv%22%3A%229.53.5%22%7D&ogu=null&ns=10240&ua=Mozilla%2F5.0%20(Windows%20NT%2010.0%3B%20Win64%3B%20x64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F120.0.0.0%20Safari%2F537.36&sua=%7B%22source%22%3A1%2C%22platform%22%3A%7B%22brand%22%3A%22Windows%22%7D%2C%22browsers%22%3A%5B%7B%22brand%22%3A%22Not%3DA%3FBrand%22%2C%22version%22%3A%5B%2299%22%5D%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%5B%22151%22%5D%7D%2C%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%5B%22151%22%5D%7D%5D%2C%22mobile%22%3A0%7D&dnt=0&lang=en",
+      "status": 200,
+      "contentType": "application/json;charset=UTF-8"
+    },
+    {
+      "url": "https://prebid.media.net/rtb/prebid?cid=8CU995W35",
+      "status": 200,
+      "contentType": "application/json;charset=utf-8"
+    },
+    {
+      "url": "https://onetag-sys.com/prebid-request",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://fast.nexx360.io/booster",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://htlb.casalemedia.com/openrtb/pbjs?s=1040929",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://prg.smartadserver.com/prebid/v1",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8"
+    },
+    {
+      "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-MPJ3NLQYPR&gtm=45je67m0v893973031za200zd893973031&_p=1785160076545&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAAAQ&ae=a&are=1&cid=62490019.1785160077&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=1280x720&uaa=x86&uab=64&uafvl=Not%253DA%253FBrand%3B99.0.0.0%7CHeadlessChrome%3B151.0.7922.34%7CChromium%3B151.0.7922.34&uam=&uamb=0&uap=Windows&uapv=10.0&uaw=0&ul=en-us&_s=2&tag_exp=115616985~115938466~115938469~118897920~118897930~119896802&sid=1785160077&sct=1&seg=0&dl=https%3A%2F%2Fwww.online-stopwatch.com%2Fduck-race%2Ffull-screen%2F%3Fcountdown%3D00%3A01%3A07%26characterStyle%3D0&dt=Online%20Duck%20Race%20Game&en=scroll&epn.percent_scrolled=90&_et=10&tfd=3254",
+      "status": 204,
+      "contentType": "text/plain"
+    },
+    {
+      "url": "https://prg.smartadserver.com/prebid/v1",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8"
+    },
+    {
+      "url": "https://ad-delivery.net/px.gif?ch=1&e=0.2750305117665732",
+      "status": 200,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://prg.smartadserver.com/prebid/v1",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8"
+    },
+    {
+      "url": "https://ad-delivery.net/px.gif?ch=2&e=0.14709581743923406",
+      "status": 200,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/sounds/duck0.mp3",
+      "status": 200,
+      "contentType": "audio/mpeg"
+    },
+    {
+      "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.5748931491561367",
+      "status": 200,
+      "contentType": "image/x-icon"
+    },
+    {
+      "url": "https://cdn.api.btloader.com/device?orgid=5708166709903360&platformVersion=10.0&fullVersionList=%5B%7B%22brand%22%3A%22Not%3DA%3FBrand%22%2C%22version%22%3A%2299.0.0.0%22%7D%2C%7B%22brand%22%3A%22HeadlessChrome%22%2C%22version%22%3A%22151.0.7922.34%22%7D%2C%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22151.0.7922.34%22%7D%5D&upapi=true",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/sounds/duck1.mp3",
+      "status": 200,
+      "contentType": "audio/mpeg"
+    },
+    {
+      "url": "https://tpc.googlesyndication.com/pagead/js/r20260724/r20110914/elements/html/fullscreen_api_adapter_fy2021.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://tpc.googlesyndication.com/pagead/js/r20260724/r20110914/elements/html/interstitial_ad_frame_fy2021.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/duck-race-1000/sounds/duck2.mp3",
+      "status": 200,
+      "contentType": "audio/mpeg"
+    },
+    {
+      "url": "https://tpc.googlesyndication.com/safeframe/1-0-45/js/ext.js",
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    {
+      "url": "https://pbs-publift-us.ay.delivery/cookie_sync",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4878966478716653",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://targeting.unrulymedia.com/unruly_prebid",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/managed/js/activeview/current/ufs_web_display.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=ISO-8859-1"
+    },
+    {
+      "url": "https://mp.4dex.io/prebid",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://ad-delivery.net/px.gif?ch=1&e=0.7925494721177774",
+      "status": 200,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://bcp.crwdcntrl.net/6/map?xcid=16589",
+      "status": 200,
+      "contentType": "application/json;charset=utf-8"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/premium1000.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://api.id5-sync.com/analytics/1189/id5-api-js",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/gen_204?id=av-js&type=fle-fetch-start2",
+      "status": 204,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://web-banner.ads.aps.amazon-adsystem.com/e/dtb/bid",
+      "status": 200,
+      "contentType": "application/json;charset=UTF-8"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/gen_204?id=av-js&type=colleague-executed&name=4",
+      "status": 204,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/gen_204?id=av-js&type=reach&proto=CAlgAWACaAM%3D",
+      "status": 204,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202607210101/show_ads_impl_fy2021.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://prebid.dblks.net/openrtb/?sid=2729564",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.157027657655871",
+      "status": 200,
+      "contentType": "image/x-icon"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/user/logos/join.png",
+      "status": 200,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://ad-delivery.net/px.gif?ch=2&e=0.5194705405326908",
+      "status": 200,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://pbs-publift-us.ay.delivery/openrtb2/auction",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://exchange.kueezrtb.com/prebid/multi/672357405abdfcb87eaca9cd",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://ib.adnxs.com/ut/v3/prebid",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://exchange.kueezrtb.com/prebid/multi/672357405abdfcb87eaca9cd",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://exchange.kueezrtb.com/prebid/multi/672357405abdfcb87eaca9cd",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://exchange.cootlogix.com/prebid/multi/66bcb2841f24a4c72df7aca4",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "blob:https://www.online-stopwatch.com/0f28168f-2898-423d-9dc4-5992a356d956",
+      "status": 200,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://exchange.cootlogix.com/prebid/multi/66bcb2841f24a4c72df7aca4",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://exchange.cootlogix.com/prebid/multi/66bcb2841f24a4c72df7aca4",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/html5/race-timers-2025/js/premium0.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "url": "https://usync.ingage.tech/cdn-cgi/images/cf-no-screenshot-error.png",
+      "status": 200,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://usync.ingage.tech/cdn-cgi/images/browser-bar.png?1376755637",
+      "status": 200,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1",
+      "status": 204,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1",
+      "status": 204,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://lbs.eu-1-id5-sync.com/lbs/v1",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-4878966478716653&output=html&h=280&slotname=3448818709&adk=3850935684&adf=3171382003&pi=t.ma~as.3448818709&abgtt=6&w=336&lmt=1785160080&format=336x280&url=https%3A%2F%2Fca4df5b1c180444accdad41845be1b66.safeframe.googlesyndication.com%2Fsafeframe%2F1-0-45%2Fhtml%2Fcontainer.html&aiof=10&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTAuMCIsIng4NiIsIiIsIjE1MS4wLjc5MjIuMzQiLG51bGwsMCxudWxsLCI2NCIsW1siTm90PUE_QnJhbmQiLCI5OS4wLjAuMCJdLFsiSGVhZGxlc3NDaHJvbWUiLCIxNTEuMC43OTIyLjM0Il0sWyJDaHJvbWl1bSIsIjE1MS4wLjc5MjIuMzQiXV0sMF0.&dt=1785160079962&bpp=7&bdt=405&idt=333&shv=r20260721&mjsv=m202607210101&ptt=9&saldr=aa&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=5243563775863&frm=24&ife=1&pv=1&nhd=2&u_tz=420&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=-12245933&bih=-12245933&isw=336&ish=280&ifk=3320165011&scr_x=-12245933&scr_y=-12245933&eid=95396139%2C95397131%2C42533293&oid=2&pvsid=2501406231686913&tmod=1792359832&uas=0&nvt=7&top=https%3A%2F%2Fwww.online-stopwatch.com%2F&etu=AA-V4qNkc7-zvLM9H8gvWmJWgtOjjqYalu7fSNl6i0_GjqUKVMFksJ7V0e1nALUUYhWi7ZpqHB27lnJcR-FnUYfXddh8NN2oxC2z1Q0OrvnVAFiFwER1JEimoy7FlC6DoI6TFRk3ocFhcMrSAcco1lfOi6WC1JxGucDLL5T3Jhc&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C720%2C336%2C280&vis=1&rsz=%7C%7CeE%7C&abl=CS&pfx=0&fu=4&bc=31&bz=1&ifi=2&uci=2.mcp6k5qfjapg&fsb=1&dtd=427",
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-4878966478716653&output=html&adk=1812271804&adf=2662694555&abgtt=6&lmt=1785160080&plat=1%3A520%2C2%3A520%2C3%3A2163200%2C4%3A2163200%2C8%3A512%2C9%3A520%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C26%3A512%2C27%3A512%2C30%3A1049088%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&format=0x0&url=https%3A%2F%2Fca4df5b1c180444accdad41845be1b66.safeframe.googlesyndication.com%2Fsafeframe%2F1-0-45%2Fhtml%2Fcontainer.html&pra=5&aiof=10&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJXaW5kb3dzIiwiMTAuMCIsIng4NiIsIiIsIjE1MS4wLjc5MjIuMzQiLG51bGwsMCxudWxsLCI2NCIsW1siTm90PUE_QnJhbmQiLCI5OS4wLjAuMCJdLFsiSGVhZGxlc3NDaHJvbWUiLCIxNTEuMC43OTIyLjM0Il0sWyJDaHJvbWl1bSIsIjE1MS4wLjc5MjIuMzQiXV0sMF0.&dt=1785160079962&bpp=6&bdt=405&idt=305&shv=r20260721&mjsv=m202607210101&ptt=9&saldr=aa&cookie_enabled=1&eoidce=1&nras=1&correlator=5243563775863&frm=24&ife=1&pv=2&nhd=2&u_tz=420&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=-12245933&bih=-12245933&isw=336&ish=280&ifk=3320165011&scr_x=-12245933&scr_y=-12245933&eid=95396139%2C95397131%2C42533293&oid=2&pvsid=2501406231686913&tmod=1792359832&uas=0&nvt=7&fsapi=1&top=https%3A%2F%2Fwww.online-stopwatch.com%2F&etu=AA-V4qNkc7-zvLM9H8gvWmJWgtOjjqYalu7fSNl6i0_GjqUKVMFksJ7V0e1nALUUYhWi7ZpqHB27lnJcR-FnUYfXddh8NN2oxC2z1Q0OrvnVAFiFwER1JEimoy7FlC6DoI6TFRk3ocFhcMrSAcco1lfOi6WC1JxGucDLL5T3Jhc&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C720%2C336%2C280&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=4&bc=31&bz=1&ifi=1&uci=1.h52qc7kvoqy&fsb=1&dtd=400",
+      "status": 403,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://lb.eu-1-id5-sync.com/lb/v1",
+      "status": 200,
+      "contentType": "application/json;charset=UTF-8"
+    },
+    {
+      "url": "https://ep1.adtrafficquality.google/getconfig/sodar?sv=200&tid=gda&tv=r20260721&st=env&sjk=2501406231686913",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8"
+    },
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496",
+      "status": 200,
+      "contentType": "text/javascript;charset=UTF-8"
+    },
+    {
+      "url": "https://pagead2.googlesyndication.com/pagead/js/google_top_exp.js?fcd=true",
+      "status": 200,
+      "contentType": "text/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://ex.ingage.tech/v1/openrtb",
+      "status": 204,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://spellknight.com/i9pxowy7/oil2evnpgsj05uvq",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://ep2.adtrafficquality.google/sodar/sodar2.js",
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    {
+      "url": "https://fundingchoicesmessages.google.com/f/AGSKWxWoyVCQklMnDrvonJipMR5c4f9YmRnUyK-4HyoJQya9dpQOlfDW-SbtWx4rIu7Kd-oqX99Ea-uF_6eXR3Aua40t3a1jxovSbc9dQQWnuF_tRtAJl0BQaQBAqgnUdf2DyYoKw3ToI4ZESF2628Y4Wyxdxa-Yi-BHg76XwbWl382q9TjT9vwnPq56uWR7/_/scripts/ad-/ad_counter./tfs-ad./siteadvert./advt.",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "url": "https://id5-sync.com/gm/v3",
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "url": "https://www.online-stopwatch.com/sounds/3.mp3",
+      "status": 200,
+      "contentType": "audio/mpeg"
+    },
+    {
+      "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.48735459455293484",
+      "status": 200,
+      "contentType": "image/x-icon"
+    },
+    {
+      "url": "https://usync.ingage.tech/cdn-cgi/challenge-platform/h/g/scripts/jsd/b0da9f4911ba/main.js?",
+      "status": 200,
+      "contentType": "application/javascript; charset=UTF-8"
+    },
+    {
+      "url": "https://ad-delivery.net/px.gif?ch=1&e=0.5505660553678964",
+      "status": 200,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://ad-delivery.net/px.gif?ch=2&e=0.31942839828224323",
+      "status": 200,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://fundingchoicesmessages.google.com/f/AGSKWxV5FWjbtUptDg6PfIYG-YQshD3agowvMKh5hSBfJ8byh4394TEqx1gMJr9lq69iWLuqMhZkuAAt06k8PxLJJTsPFfD3uzp8iLoMqmtd2T6wDDBS5ntOFfNALXYTI09NgxQBFbprkg==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzg1MTYwMDgxLDMzOTAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOSw2XSxudWxsLDIsbnVsbCwiZW4iLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCwxXSwiaHR0cHM6Ly93d3cub25saW5lLXN0b3B3YXRjaC5jb20vZHVjay1yYWNlL2Z1bGwtc2NyZWVuLyIsbnVsbCxbWzgsIkliNjVCYVQ4QjZRIl0sWzksImVuLVVTIl0sWzE4LCJbW1tudWxsLDE5OTNdXV0iXSxbMzUsIjE3ODUxNjAwNzgiXSxbMTksIjIiXSxbMTcsIlswXSJdLFsyNCwiIl0sWzI5LCJmYWxzZSJdXV0",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8"
+    }
+  ]
+}
