@@ -1,7 +1,7 @@
 export async function onRequestGet(context) {
   let config = { winnerOrder: [3, 1, 2], updatedAt: new Date().toISOString() };
   try {
-    if (context.env && context.env.GAME_KV) {
+    if (context && context.env && context.env.GAME_KV && typeof context.env.GAME_KV.get === 'function') {
       const stored = await context.env.GAME_KV.get('activeGameConfig');
       if (stored) config = JSON.parse(stored);
     }
