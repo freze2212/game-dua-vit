@@ -351,6 +351,7 @@ function Settings(props)
     _this.hide=function ()
     {
         menuInstance.visible=false;
+        if (menuInstance.loader) menuInstance.loader.visible = false;
         timerInstance.visible=true;
         $("#titleInput").hide();
         $("#selectDrop").hide();
@@ -360,28 +361,13 @@ function Settings(props)
 
     _this.fakeLoader=function(action)
     {
-
-        if (action==="show")
-        {
-            menuInstance.visible=true;
-            menuInstance.loader.bar.resizable.scaleX = Math.getRandomArbitrary(0.3,0.8);
-            menuInstance.loader.visible = true;
-
-
-
-
-            $('#countInput').hide();
-
-
-        }
-        else
-        {
-            menuInstance.visible=false;
-            menuInstance.loader.bar.resizable.scaleX = 0;
+        menuInstance.visible=false;
+        if (menuInstance.loader) {
             menuInstance.loader.visible = false;
+            if (menuInstance.loader.bar && menuInstance.loader.bar.resizable) menuInstance.loader.bar.resizable.scaleX = 0;
         }
+        $('#countInput').hide();
     };
-
 
     _this.removeWinner=function(newList)
     {
@@ -390,16 +376,16 @@ function Settings(props)
             return $.trim(el) !== "";
         });
         onMenuShowNameCount();
-
     };
-
 
     _this.loaderReset=function()
     {
-        menuInstance.visible=true;
+        menuInstance.visible=false;
         menuInstance.mouseEnabled = false;
-        menuInstance.loader.bar.resizable.scaleX = 0;
-        menuInstance.loader.visible = true;
+        if (menuInstance.loader) {
+            menuInstance.loader.visible = false;
+            if (menuInstance.loader.bar && menuInstance.loader.bar.resizable) menuInstance.loader.bar.resizable.scaleX = 0;
+        }
 
 
         waitForReady("#titleInput",function ()
